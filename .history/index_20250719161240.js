@@ -54,8 +54,6 @@ DOCUMENTACIÓN:
 COMANDOS SLASH DISPONIBLES:
   /find-bugs        Buscar bugs en el código
   /find-unused-code Encontrar código sin uso
-  /auto-commit      Commits automáticos con IA
-  /create-pr        Pull requests inteligentes
   
 🎯 Para más información, visita: docs/README.md
   `);

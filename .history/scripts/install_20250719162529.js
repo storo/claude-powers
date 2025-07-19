@@ -138,12 +138,8 @@ if (args.includes('--dry-run')) {
   console.log('  - Crear directorio .claude/commands/');
   console.log('  - Copiar comando find-bugs.md');
   console.log('  - Copiar comando find-unused-code.md');
-  console.log('  - Copiar comando auto-commit.md');
-  console.log('  - Copiar comando create-pr.md');
   console.log('  - Copiar configuración find-bugs-config.json');
   console.log('  - Copiar configuración find-unused-code-config.json');
-  console.log('  - Copiar configuración auto-commit-config.json');
-  console.log('  - Copiar configuración create-pr-config.json');
   process.exit(0);
 }
 

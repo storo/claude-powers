@@ -46,12 +46,7 @@ function installCommands() {
     }
     
     // Copiar configuraciones si no existen
-    const configFiles = [
-      'find-bugs-config.json', 
-      'find-unused-code-config.json',
-      'auto-commit-config.json',
-      'create-pr-config.json'
-    ];
+    const configFiles = ['find-bugs-config.json', 'find-unused-code-config.json'];
     configFiles.forEach(configFile => {
       const source = path.join(sourceConfigDir, configFile);
       const dest = path.join(claudeDir, configFile);
@@ -66,15 +61,11 @@ function installCommands() {
     console.log('\n📋 Comandos disponibles:');
     console.log('  /find-bugs - Buscar bugs en el código');
     console.log('  /find-unused-code - Encontrar código sin uso');
-    console.log('  /auto-commit - Commits automáticos con IA');
-    console.log('  /create-pr - Pull requests inteligentes');
     console.log('\n💡 Uso:');
     console.log('  /find-bugs');
     console.log('  /find-bugs src/ --tipos=react --severidad=alto');
     console.log('  /find-unused-code');
     console.log('  /find-unused-code src/ --tipos=variables,funciones');
-    console.log('  /auto-commit --interactive');
-    console.log('  /create-pr --tipo=feature --reviewers=@team');
     console.log('\n📖 Documentación completa: docs/README.md');
     
   } catch (error) {
@@ -138,12 +129,8 @@ if (args.includes('--dry-run')) {
   console.log('  - Crear directorio .claude/commands/');
   console.log('  - Copiar comando find-bugs.md');
   console.log('  - Copiar comando find-unused-code.md');
-  console.log('  - Copiar comando auto-commit.md');
-  console.log('  - Copiar comando create-pr.md');
   console.log('  - Copiar configuración find-bugs-config.json');
   console.log('  - Copiar configuración find-unused-code-config.json');
-  console.log('  - Copiar configuración auto-commit-config.json');
-  console.log('  - Copiar configuración create-pr-config.json');
   process.exit(0);
 }
 
