@@ -1,0 +1,167 @@
+{
+  "severity": "medio",
+  "analysis": {
+    "variables": true,
+    "functions": true,
+    "imports": true,
+    "exports": true,
+    "files": true,
+    "css": true,
+    "dependencies": true,
+    "react": true,
+    "typescript": true,
+    "javascript": true
+  },
+  "thresholds": {
+    "minFileSize": 5,
+    "minFunctionSize": 2,
+    "maxUnusedPercentage": 20,
+    "bundleImpactThreshold": 10000,
+    "complexityThreshold": 3
+  },
+  "exclude": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".next/**",
+    "*.test.js",
+    "*.spec.js",
+    "*.test.ts",
+    "*.spec.ts",
+    "*.test.jsx",
+    "*.spec.jsx",
+    "*.test.tsx",
+    "*.spec.tsx",
+    "*.d.ts",
+    ".git/**",
+    ".cache/**",
+    "public/**",
+    "static/**"
+  ],
+  "include": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.jsx",
+    "**/*.tsx",
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less",
+    "**/*.vue",
+    "**/*.json",
+    "package.json"
+  ],
+  "specialPatterns": {
+    "testFiles": [
+      "*.test.*",
+      "*.spec.*",
+      "__tests__/**",
+      "**/__tests__/**",
+      "**/test/**",
+      "**/tests/**"
+    ],
+    "configFiles": [
+      "*.config.*",
+      ".*rc.*",
+      "*.setup.*",
+      "webpack.*",
+      "vite.*",
+      "rollup.*",
+      ".eslintrc.*",
+      ".prettierrc.*",
+      "tsconfig.*",
+      "jsconfig.*"
+    ],
+    "typeFiles": [
+      "*.d.ts",
+      "types/**",
+      "**/types/**",
+      "@types/**"
+    ],
+    "entryPoints": [
+      "index.*",
+      "main.*",
+      "app.*",
+      "src/index.*",
+      "src/main.*",
+      "src/app.*"
+    ]
+  },
+  "ignorePatterns": {
+    "variables": [
+      "console\\.(log|warn|error|info|debug)",
+      "process\\.env\\.",
+      "window\\.",
+      "document\\.",
+      "__dirname",
+      "__filename",
+      "module\\.exports",
+      "exports\\.",
+      "require\\(",
+      "_\\w*",
+      "React\\.",
+      "import\\s+React"
+    ],
+    "functions": [
+      "main\\s*\\(",
+      "init\\s*\\(",
+      "setup\\s*\\(",
+      "teardown\\s*\\(",
+      "beforeEach\\s*\\(",
+      "afterEach\\s*\\(",
+      "describe\\s*\\(",
+      "it\\s*\\(",
+      "test\\s*\\("
+    ],
+    "imports": [
+      "react",
+      "next/",
+      "@types/",
+      "jest",
+      "vitest",
+      "cypress"
+    ]
+  },
+  "severityRules": {
+    "alto": {
+      "fileSize": 50,
+      "bundleImpact": 50000,
+      "complexity": 5,
+      "dependencies": true
+    },
+    "medio": {
+      "fileSize": 10,
+      "bundleImpact": 10000,
+      "complexity": 3,
+      "multipleFiles": true
+    },
+    "bajo": {
+      "fileSize": 1,
+      "bundleImpact": 1000,
+      "complexity": 1,
+      "singleOccurrence": true
+    }
+  },
+  "reportOptions": {
+    "showSuggestions": true,
+    "showImpactAnalysis": true,
+    "groupByCategory": true,
+    "showBundleSize": true,
+    "showLineNumbers": true,
+    "maxItemsPerCategory": 50
+  },
+  "autofix": {
+    "enabled": false,
+    "safeOperations": [
+      "remove-unused-imports",
+      "remove-unused-variables",
+      "remove-empty-files"
+    ],
+    "requireConfirmation": [
+      "remove-files",
+      "remove-dependencies",
+      "remove-exports"
+    ]
+  }
+} 

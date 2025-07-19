@@ -46,7 +46,7 @@ function installCommands() {
     }
     
     // Copiar configuraciones si no existen
-    const configFiles = ['find-bugs-config.json', 'find-unused-code-config.json'];
+    const configFiles = ['find-bugs-config.json'];
     configFiles.forEach(configFile => {
       const source = path.join(sourceConfigDir, configFile);
       const dest = path.join(claudeDir, configFile);
@@ -60,12 +60,9 @@ function installCommands() {
     console.log('\n🎉 Instalación completada exitosamente!');
     console.log('\n📋 Comandos disponibles:');
     console.log('  /find-bugs - Buscar bugs en el código');
-    console.log('  /find-unused-code - Encontrar código sin uso');
     console.log('\n💡 Uso:');
     console.log('  /find-bugs');
     console.log('  /find-bugs src/ --tipos=react --severidad=alto');
-    console.log('  /find-unused-code');
-    console.log('  /find-unused-code src/ --tipos=variables,funciones');
     console.log('\n📖 Documentación completa: docs/README.md');
     
   } catch (error) {
@@ -128,9 +125,7 @@ if (args.includes('--dry-run')) {
   console.log('  - Crear directorio .claude/');
   console.log('  - Crear directorio .claude/commands/');
   console.log('  - Copiar comando find-bugs.md');
-  console.log('  - Copiar comando find-unused-code.md');
   console.log('  - Copiar configuración find-bugs-config.json');
-  console.log('  - Copiar configuración find-unused-code-config.json');
   process.exit(0);
 }
 

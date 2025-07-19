@@ -53,7 +53,6 @@ DOCUMENTACIÓN:
 
 COMANDOS SLASH DISPONIBLES:
   /find-bugs        Buscar bugs en el código
-  /find-unused-code Encontrar código sin uso
   
 🎯 Para más información, visita: docs/README.md
   `);
