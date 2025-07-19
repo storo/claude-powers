@@ -1,0 +1,35 @@
+{
+  "name": "@claude-power/slash-commands",
+  "version": "1.0.0",
+  "description": "Comandos slash para Claude Code - Herramientas de desarrollo y debugging",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/build.js",
+    "install-commands": "node scripts/install.js"
+  },
+  "keywords": [
+    "claude",
+    "slash-commands",
+    "debugging",
+    "code-analysis",
+    "development-tools"
+  ],
+  "author": "Claude Power Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claude-power/slash-commands"
+  },
+  "files": [
+    ".claude/",
+    "docs/",
+    "scripts/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+} 
