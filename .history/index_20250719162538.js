@@ -56,7 +56,6 @@ COMANDOS SLASH DISPONIBLES:
   /find-unused-code Encontrar código sin uso
   /auto-commit      Commits automáticos con IA
   /create-pr        Pull requests inteligentes
-  /code-review      Revisión automática de código
   
 🎯 Para más información, visita: docs/README.md
   `);

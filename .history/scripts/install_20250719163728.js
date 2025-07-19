@@ -69,7 +69,6 @@ function installCommands() {
     console.log('  /find-unused-code - Encontrar código sin uso');
     console.log('  /auto-commit - Commits automáticos con IA');
     console.log('  /create-pr - Pull requests inteligentes');
-    console.log('  /code-review - Revisión automática de código');
     console.log('\n💡 Uso:');
     console.log('  /find-bugs');
     console.log('  /find-bugs src/ --tipos=react --severidad=alto');
@@ -77,7 +76,6 @@ function installCommands() {
     console.log('  /find-unused-code src/ --tipos=variables,funciones');
     console.log('  /auto-commit --interactive');
     console.log('  /create-pr --tipo=feature --reviewers=@team');
-    console.log('  /code-review --aspectos=calidad,seguridad');
     console.log('\n📖 Documentación completa: docs/README.md');
     
   } catch (error) {
@@ -143,12 +141,10 @@ if (args.includes('--dry-run')) {
   console.log('  - Copiar comando find-unused-code.md');
   console.log('  - Copiar comando auto-commit.md');
   console.log('  - Copiar comando create-pr.md');
-  console.log('  - Copiar comando code-review.md');
   console.log('  - Copiar configuración find-bugs-config.json');
   console.log('  - Copiar configuración find-unused-code-config.json');
   console.log('  - Copiar configuración auto-commit-config.json');
   console.log('  - Copiar configuración create-pr-config.json');
-  console.log('  - Copiar configuración code-review-config.json');
   process.exit(0);
 }
 
