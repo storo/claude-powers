@@ -1,0 +1,179 @@
+{
+  "budgets": {
+    "strict": {
+      "bundleSize": "250KB",
+      "firstContentfulPaint": "1.5s",
+      "largestContentfulPaint": "2.5s",
+      "firstInputDelay": "100ms",
+      "cumulativeLayoutShift": "0.1",
+      "totalBlockingTime": "200ms",
+      "timeToInteractive": "3.5s"
+    },
+    "moderate": {
+      "bundleSize": "500KB",
+      "firstContentfulPaint": "2.5s",
+      "largestContentfulPaint": "4s",
+      "firstInputDelay": "200ms",
+      "cumulativeLayoutShift": "0.15",
+      "totalBlockingTime": "400ms",
+      "timeToInteractive": "5s"
+    },
+    "relaxed": {
+      "bundleSize": "1MB",
+      "firstContentfulPaint": "3s",
+      "largestContentfulPaint": "5s",
+      "firstInputDelay": "300ms",
+      "cumulativeLayoutShift": "0.25",
+      "totalBlockingTime": "600ms",
+      "timeToInteractive": "7s"
+    }
+  },
+  "optimizations": {
+    "bundle": {
+      "enabled": true,
+      "treeshaking": true,
+      "codeSplitting": true,
+      "dynamicImports": true,
+      "minification": true,
+      "compression": "gzip",
+      "unusedCodeElimination": true,
+      "modulePreloading": true,
+      "chunkOptimization": true
+    },
+    "runtime": {
+      "enabled": true,
+      "memoization": true,
+      "virtualization": true,
+      "lazyLoading": true,
+      "asyncComponents": true,
+      "renderOptimization": true,
+      "stateOptimization": true,
+      "eventOptimization": true
+    },
+    "memory": {
+      "enabled": true,
+      "leakDetection": true,
+      "cacheOptimization": true,
+      "garbageCollection": true,
+      "objectPooling": false,
+      "weakReferences": true,
+      "memoryProfiling": false
+    },
+    "network": {
+      "enabled": true,
+      "requestBatching": true,
+      "caching": true,
+      "compression": true,
+      "prefetching": true,
+      "serviceWorker": true,
+      "http2Push": false,
+      "resourceHints": true
+    },
+    "database": {
+      "enabled": true,
+      "queryOptimization": true,
+      "indexSuggestions": true,
+      "connectionPooling": true,
+      "cachingLayer": true,
+      "eagerLoading": true,
+      "lazyLoading": true,
+      "batchOperations": true
+    },
+    "images": {
+      "enabled": true,
+      "compression": true,
+      "formatOptimization": true,
+      "lazyLoading": true,
+      "responsiveImages": true,
+      "webpConversion": true,
+      "placeholders": true
+    }
+  },
+  "targets": {
+    "web": {
+      "focus": ["bundle", "runtime", "network"],
+      "frameworks": ["react", "vue", "angular", "svelte"],
+      "metrics": ["lcp", "fid", "cls", "ttfb"],
+      "devices": ["desktop", "mobile", "tablet"]
+    },
+    "mobile": {
+      "focus": ["memory", "battery", "network"],
+      "constraints": "low-end-devices",
+      "metrics": ["tti", "fcp", "memory"],
+      "optimizeForOffline": true
+    },
+    "ssr": {
+      "focus": ["ttfb", "hydration", "caching"],
+      "metrics": ["ttfb", "fcp", "tti"],
+      "streamingSSR": true
+    },
+    "desktop": {
+      "focus": ["cpu", "memory", "disk"],
+      "metrics": ["startup", "memory", "cpu"],
+      "electronOptimizations": true
+    }
+  },
+  "monitoring": {
+    "realtime": true,
+    "webVitals": true,
+    "customMetrics": true,
+    "performanceObserver": true,
+    "resourceTiming": true,
+    "userTiming": true,
+    "longTasks": true,
+    "renderTiming": true
+  },
+  "analysis": {
+    "bundleAnalysis": true,
+    "dependencyAnalysis": true,
+    "criticalPathAnalysis": true,
+    "bottleneckDetection": true,
+    "regressionDetection": true,
+    "impactAssessment": true
+  },
+  "automation": {
+    "continuousOptimization": false,
+    "autoApplyChanges": false,
+    "alertOnRegression": true,
+    "scheduleOptimization": false,
+    "adaptiveOptimization": true
+  },
+  "reporting": {
+    "detailedMetrics": true,
+    "beforeAfterComparison": true,
+    "visualReports": true,
+    "businessImpact": true,
+    "recommendationsFormat": "actionable"
+  },
+  "integrations": {
+    "lighthouse": {
+      "enabled": true,
+      "scheduledAudits": false,
+      "ciIntegration": true
+    },
+    "webPageTest": {
+      "enabled": false,
+      "apiKey": null
+    },
+    "newRelic": {
+      "enabled": false,
+      "realUserMonitoring": false
+    },
+    "datadog": {
+      "enabled": false,
+      "customMetrics": false
+    }
+  },
+  "thresholds": {
+    "regression": {
+      "performance": 10,
+      "bundleSize": 15,
+      "memoryUsage": 20
+    },
+    "warning": {
+      "performance": 5,
+      "bundleSize": 10,
+      "memoryUsage": 15
+    }
+  }
+} 

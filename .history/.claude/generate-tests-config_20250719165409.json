@@ -1,0 +1,156 @@
+{
+  "defaultFramework": "jest",
+  "defaultCoverage": 80,
+  "testTypes": {
+    "unit": {
+      "enabled": true,
+      "patterns": ["aaa", "bdd"],
+      "mockStrategy": "auto",
+      "edgeCases": "comprehensive"
+    },
+    "integration": {
+      "enabled": true,
+      "apiMocking": true,
+      "databaseMocking": "in-memory",
+      "cacheTests": true
+    },
+    "e2e": {
+      "enabled": false,
+      "framework": "playwright",
+      "browsers": ["chromium", "firefox"],
+      "devices": ["desktop", "mobile"]
+    },
+    "performance": {
+      "enabled": false,
+      "budgets": {
+        "renderTime": "16ms",
+        "bundleSize": "500KB",
+        "memoryUsage": "50MB"
+      }
+    },
+    "accessibility": {
+      "enabled": true,
+      "standards": ["wcag2.1", "section508"],
+      "levels": ["AA"]
+    }
+  },
+  "frameworks": {
+    "jest": {
+      "setupFiles": ["@testing-library/jest-dom"],
+      "testEnvironment": "jsdom",
+      "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
+      "coverageThreshold": {
+        "global": {
+          "branches": 80,
+          "functions": 80,
+          "lines": 80,
+          "statements": 80
+        }
+      }
+    },
+    "vitest": {
+      "environment": "jsdom",
+      "setupFiles": ["@testing-library/jest-dom"],
+      "coverage": {
+        "provider": "c8",
+        "reporter": ["text", "html", "json"]
+      }
+    },
+    "cypress": {
+      "baseUrl": "http://localhost:3000",
+      "viewportWidth": 1280,
+      "viewportHeight": 720,
+      "video": false,
+      "screenshotOnRunFailure": true
+    },
+    "playwright": {
+      "baseURL": "http://localhost:3000",
+      "use": {
+        "screenshot": "only-on-failure",
+        "video": "retain-on-failure",
+        "trace": "on-first-retry"
+      },
+      "projects": [
+        {
+          "name": "chromium",
+          "use": { "...devices['Desktop Chrome']" }
+        },
+        {
+          "name": "firefox", 
+          "use": { "...devices['Desktop Firefox']" }
+        },
+        {
+          "name": "webkit",
+          "use": { "...devices['Desktop Safari']" }
+        }
+      ]
+    }
+  },
+  "mocking": {
+    "apiRequests": {
+      "strategy": "msw",
+      "generateMockData": true,
+      "realisticData": true,
+      "responseDelay": "realistic"
+    },
+    "modules": {
+      "strategy": "auto",
+      "preserveImplementation": false,
+      "mockExternal": true
+    },
+    "dependencies": {
+      "external": "mock",
+      "internal": "spy",
+      "database": "in-memory"
+    },
+    "filesystem": {
+      "mockFS": true,
+      "tempDirectory": "./tests/temp"
+    }
+  },
+  "codeAnalysis": {
+    "detectTestableUnits": true,
+    "identifyEdgeCases": true,
+    "analyzeDependencies": true,
+    "extractBusinessLogic": true,
+    "findComplexMethods": true,
+    "detectAsyncPatterns": true
+  },
+  "generation": {
+    "naming": {
+      "convention": "descriptive",
+      "includeContext": true,
+      "useBusinessTerms": true
+    },
+    "structure": {
+      "groupByFeature": true,
+      "separateSetup": true,
+      "includeCleanup": true
+    },
+    "assertions": {
+      "style": "readable",
+      "customMatchers": true,
+      "detailedFailureMessages": true
+    }
+  },
+  "quality": {
+    "minCoverageForGeneration": 70,
+    "maxTestsPerFile": 50,
+    "maxAssertionsPerTest": 5,
+    "enforceTestNaming": true
+  },
+  "integrations": {
+    "ci": {
+      "generateWorkflows": true,
+      "platforms": ["github", "gitlab", "circleci"]
+    },
+    "ide": {
+      "generateSnippets": true,
+      "configureRunners": true
+    },
+    "reporting": {
+      "formats": ["html", "json", "lcov"],
+      "includeMetrics": true
+    }
+  }
+} 

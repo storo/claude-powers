@@ -52,15 +52,6 @@ DOCUMENTACIÓN:
   https://github.com/claude-power/slash-commands
 
 COMANDOS SLASH DISPONIBLES:
-
-🔥 Super Poderes:
-  /generate-tests    Tests automáticos con 90%+ cobertura
-  /fix-bugs         Auto-reparación de bugs (90% reducción)
-  /performance-turbo Optimización automática (60%+ mejora)
-  /security-fortress Fortaleza de seguridad impenetrable
-  /explain-code     Profesor personal de código
-
-🛠️ Comandos Base:
   /find-bugs        Buscar bugs en el código
   /find-unused-code Encontrar código sin uso
   /auto-commit      Commits automáticos con IA

@@ -51,12 +51,7 @@ function installCommands() {
       'find-unused-code-config.json',
       'auto-commit-config.json',
       'create-pr-config.json',
-      'code-review-config.json',
-      'generate-tests-config.json',
-      'fix-bugs-config.json',
-      'performance-turbo-config.json',
-      'security-fortress-config.json',
-      'explain-code-config.json'
+      'code-review-config.json'
     ];
     configFiles.forEach(configFile => {
       const source = path.join(sourceConfigDir, configFile);
@@ -70,28 +65,19 @@ function installCommands() {
     
     console.log('\n🎉 Instalación completada exitosamente!');
     console.log('\n📋 Comandos disponibles:');
-    console.log('\n🔥 Super Poderes:');
-    console.log('  /generate-tests - Tests automáticos con 90%+ cobertura');
-    console.log('  /fix-bugs - Auto-reparación de bugs (90% reducción)');
-    console.log('  /performance-turbo - Optimización automática (60%+ mejora)');
-    console.log('  /security-fortress - Fortaleza de seguridad impenetrable');
-    console.log('  /explain-code - Profesor personal de código');
-    console.log('\n🛠️ Comandos Base:');
     console.log('  /find-bugs - Buscar bugs en el código');
     console.log('  /find-unused-code - Encontrar código sin uso');
     console.log('  /auto-commit - Commits automáticos con IA');
     console.log('  /create-pr - Pull requests inteligentes');
     console.log('  /code-review - Revisión automática de código');
-    console.log('\n💡 Ejemplos de Super Poderes:');
-    console.log('  /generate-tests src/components/UserProfile.tsx --coverage=95%');
-    console.log('  /fix-bugs --tipos=memory-leaks,null-pointers --confidence=high');
-    console.log('  /performance-turbo --target=web --budget=strict');
-    console.log('  /security-fortress --compliance=gdpr,owasp --harden=paranoid');
-    console.log('  /explain-code src/algorithm.js --nivel=beginner --diagrama=flowchart');
-    console.log('\n💡 Uso comandos base:');
+    console.log('\n💡 Uso:');
+    console.log('  /find-bugs');
     console.log('  /find-bugs src/ --tipos=react --severidad=alto');
+    console.log('  /find-unused-code');
+    console.log('  /find-unused-code src/ --tipos=variables,funciones');
     console.log('  /auto-commit --interactive');
     console.log('  /create-pr --tipo=feature --reviewers=@team');
+    console.log('  /code-review --aspectos=calidad,seguridad');
     console.log('\n📖 Documentación completa: docs/README.md');
     
   } catch (error) {
