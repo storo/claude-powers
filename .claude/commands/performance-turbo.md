@@ -17,15 +17,15 @@ El comando `/performance-turbo` lleva el rendimiento de tu aplicación al siguie
 - **Web Vitals optimization** para SEO y UX
 - **Real-time suggestions** durante desarrollo
 
-## Uso
+## Usage
 
 ```
-/performance-turbo [directorio] [--target] [--focus] [--budget] [--mode]
+/performance-turbo [directory] [--target] [--focus] [--budget] [--mode]
 ```
 
 ### Parámetros
 
-- `directorio`: Directorio específico a optimizar
+- `directory`: directory específico a optimizar
 - `--target`: Plataforma objetivo (web, mobile, desktop, ssr)
 - `--focus`: Área de foco (bundle, runtime, memory, network, database)
 - `--budget`: Performance budget (strict, moderate, relaxed)
@@ -34,7 +34,7 @@ El comando `/performance-turbo` lleva el rendimiento de tu aplicación al siguie
 - `--metrics`: Métricas objetivo (lcp, fid, cls, ttfb)
 - `--baseline`: Comparar con baseline anterior
 
-### Ejemplos
+### Examples
 
 ```
 /performance-turbo
@@ -540,7 +540,7 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 ✅ Cache LRU implementado en 12 funciones
 
 📊 RESULTADOS MEMORY:
-• Memory usage: -42% promedio
+• Memory usage: -42% promedium
 • GC frequency: -35% collections
 • Retained size: -50% improvement
 
@@ -563,7 +563,7 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 ✅ Redis cache layer agregado
 
 📊 RESULTADOS DATABASE:
-• Query time: -75% promedio
+• Query time: -75% promedium
 • Database connections: -50% usage
 • Cache hit rate: 92% on frequent queries
 

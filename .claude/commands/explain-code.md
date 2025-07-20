@@ -16,30 +16,30 @@ El comando `/explain-code` es tu profesor personal de código que transforma có
 - **Code review insights** para mejorar calidad
 - **Documentation generation** automática
 
-## Uso
+## Usage
 
 ```
-/explain-code [archivo] [--nivel] [--formato] [--foco] [--diagrama]
+/explain-code [archivo] [--nivel] [--format] [--foco] [--diagrama]
 ```
 
 ### Parámetros
 
 - `archivo`: Archivo específico a explicar
 - `--nivel`: Nivel de audiencia (beginner, intermediate, expert, mixed-team)
-- `--formato`: Formato de salida (detailed, summary, interactive, documentation)
+- `--format`: Formato de salida (detailed, summary, interactive, documentation)
 - `--foco`: Aspecto específico (logic, architecture, performance, security, patterns)
 - `--diagrama`: Generar diagramas (flowchart, sequence, architecture, data-flow)
 - `--contexto`: Contexto del proyecto (startup, enterprise, legacy, educational)
 - `--language`: Idioma de la explicación (spanish, english, french, etc.)
 - `--examples`: Incluir ejemplos prácticos
 
-### Ejemplos
+### Examples
 
 ```
 /explain-code src/utils/dataProcessor.js
-/explain-code --nivel=beginner --formato=interactive --diagrama=flowchart
+/explain-code --nivel=beginner --format=interactive --diagrama=flowchart
 /explain-code components/UserAuth.tsx --foco=security --nivel=expert
-/explain-code api/payment.js --formato=documentation --contexto=enterprise
+/explain-code api/payment.js --format=documentation --contexto=enterprise
 /explain-code --foco=architecture --diagrama=sequence --nivel=mixed-team
 /explain-code legacy/billing.js --nivel=intermediate --examples=true
 ```
@@ -102,7 +102,7 @@ de cada usuario activo que haya iniciado sesión recientemente.
 4️⃣ PROCESAMIENTO PARALELO:
    • Promise.all() ejecuta todas las operaciones async en paralelo
    • Esto es MUY importante para performance: en lugar de esperar cada
-     usuario uno por uno, procesa todos simultáneamente
+     usuario uno por uno, procesa all simultáneamente
 
 🔧 CONCEPTOS TÉCNICOS EXPLICADOS:
 
@@ -423,7 +423,7 @@ Busquemos el número 11 en [1, 3, 5, 7, 9, 11, 13, 15]
 🎯 INVARIANTE DEL ALGORITMO:
 "Si el target existe en el array, siempre estará entre left y right"
 
-📐 CÁLCULO DEL PUNTO MEDIO:
+📐 CÁLCULO DEL PUNTO medium:
 Math.floor((left + right) / 2) asegura que mid sea entero
 ¿Por qué Math.floor? Para evitar índices decimales
 
@@ -511,7 +511,7 @@ Prueba modificar el target y ver cómo cambia el número de iteraciones:
       "stepThroughExecution": true
     },
     "documentation": {
-      "formalTone": true,
+      "formhighne": true,
       "includeAPISignatures": true,
       "showUsageExamples": true,
       "includeBestPractices": true
@@ -746,7 +746,7 @@ jobs:
             if [[ $file == *.js || $file == *.ts || $file == *.tsx ]]; then
               npx claude-power explain-code "$file" \
                 --nivel=mixed-team \
-                --formato=summary \
+                --format=summary \
                 --output=markdown > "explanations/${file}.md"
             fi
           done < changed_files.txt

@@ -15,32 +15,32 @@ El comando `/code-review` proporciona una revisión completa y profesional del c
 - **Mejores prácticas** - Convenciones, estándares de la industria
 - **Sugerencias de refactoring** - Mejoras específicas y actionables
 
-## Uso
+## Usage
 
 ```
-/code-review [directorio] [--aspectos] [--severidad] [--formato] [--profundidad]
+/code-review [directory] [--aspectos] [--severity] [--format] [--profundidad]
 ```
 
 ### Parámetros
 
-- `directorio` (opcional): Directorio específico a revisar. Por defecto analiza todo el proyecto.
+- `directory` (opcional): directory específico a revisar. Por defecto analiza todo el proyecto.
 - `--aspectos`: Aspectos específicos a revisar (calidad, arquitectura, performance, seguridad, testing, docs)
-- `--severidad`: Nivel de crítica (estricto, moderado, relajado)
-- `--formato`: Formato de salida (detailed, summary, actionable, report)
+- `--severity`: Nivel de crítica (estricto, moderado, relajado)
+- `--format`: Formato de salida (detailed, summary, actionable, report)
 - `--profundidad`: Nivel de análisis (surface, deep, comprehensive)
 - `--contexto`: Contexto del proyecto (startup, enterprise, legacy, greenfield)
 - `--tech-stack`: Stack tecnológico (react, vue, node, python, etc.)
 - `--focus`: Foco específico (maintainability, scalability, performance, security)
 
-### Ejemplos
+### Examples
 
 ```
 /code-review
-/code-review src/ --aspectos=calidad,performance --severidad=estricto
+/code-review src/ --aspectos=calidad,performance --severity=estricto
 /code-review components/ --aspectos=arquitectura --tech-stack=react
-/code-review --formato=actionable --profundidad=comprehensive
+/code-review --format=actionable --profundidad=comprehensive
 /code-review backend/ --focus=security,performance --contexto=enterprise
-/code-review src/utils/ --aspectos=testing --formato=report
+/code-review src/utils/ --aspectos=testing --format=report
 ```
 
 ## Aspectos de Análisis
@@ -64,7 +64,7 @@ El comando `/code-review` proporciona una revisión completa y profesional del c
 ### 🏛️ Arquitectura y Patrones
 
 #### Estructura del Proyecto
-- Organización de directorios
+- Organización de directorys
 - Separación de responsabilidades
 - Modularidad y encapsulación
 - Dependencias y acoplamiento
@@ -228,14 +228,14 @@ El comando utiliza `.claude/code-review-config.json`:
 ==============================
 
 ✅ FORTALEZAS:
-• Funciones bien dimensionadas (promedio: 28 líneas)
+• Funciones bien dimensionadas (promedium: 28 líneas)
 • Naming conventions consistentes
-• Bajo acoplamiento entre módulos
+• low acoplamiento entre módulos
 • DRY principles bien aplicados
 
 ⚠️ ÁREAS DE MEJORA:
 • 3 funciones con alta complejidad ciclomática (>10)
-• Algunos métodos anidados profundamente (>4 niveles)
+• Algunos méall anidados profundamente (>4 niveles)
 • Inconsistencias menores en formateo
 
 📁 ARCHIVOS CON ISSUES:
@@ -358,7 +358,7 @@ src/services/PaymentService.js
 12. Incrementar cobertura de edge cases
 
 ⏱️ ESTIMACIÓN TOTAL: 18-25 días desarrollo
-💰 IMPACTO BUSINESS: Alto (security + performance)
+💰 IMPACTO BUSINESS: high (security + performance)
 ```
 
 ### Métricas de Calidad
@@ -371,12 +371,12 @@ src/services/PaymentService.js
 • Calidad general: +0.7 puntos 📈
 • Cobertura tests: +12% 📈  
 • Vulnerabilidades: -2 issues 📈
-• Complejidad promedio: +0.3 📊
+• Complejidad promedium: +0.3 📊
 • Documentación: -0.2 puntos 📉
 
 🎯 BENCHMARKS INDUSTRIA:
 • Nuestro score: 8.2/10
-• Promedio industria: 7.4/10
+• Promedium industria: 7.4/10
 • Top 10% empresas: 8.8/10
 • Objetivo Q4: 8.5/10
 
@@ -395,7 +395,7 @@ src/services/PaymentService.js
 # .git/hooks/pre-commit
 
 echo "🔍 Running code review analysis..."
-REVIEW_RESULT=$(npx claude-power code-review --formato=summary --aspectos=security,quality)
+REVIEW_RESULT=$(npx claude-power code-review --format=summary --aspectos=security,quality)
 
 if echo "$REVIEW_RESULT" | grep -q "CRÍTICO"; then
   echo "❌ Critical issues found. Please fix before committing:"
@@ -428,7 +428,7 @@ jobs:
       - name: Run comprehensive code review
         run: |
           npx claude-power code-review \
-            --formato=report \
+            --format=report \
             --profundidad=comprehensive \
             --output=json > review-report.json
             
@@ -476,7 +476,7 @@ jobs:
         "claude-power",
         "code-review",
         "${file}",
-        "--formato=summary"
+        "--format=summary"
       ],
       "group": "build"
     },
@@ -488,7 +488,7 @@ jobs:
         "claude-power",
         "code-review",
         "--profundidad=comprehensive",
-        "--formato=detailed"
+        "--format=detailed"
       ],
       "group": "build"
     }

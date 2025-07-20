@@ -13,31 +13,31 @@ El comando `/auto-commit` analiza los cambios pendientes en el repositorio Git y
 - **Validación** antes del commit para evitar errores
 - **Sugerencias de mejora** en el mensaje generado
 
-## Uso
+## Usage
 
 ```
-/auto-commit [--tipo] [--alcance] [--mensaje] [--validar] [--formato]
+/auto-commit [--type] [--alcance] [--mensaje] [--validar] [--format]
 ```
 
 ### Parámetros
 
-- `--tipo`: Forzar un tipo específico (feat, fix, docs, style, refactor, test, chore)
+- `--type`: Forzar un tipo específico (feat, fix, docs, style, refactor, test, chore)
 - `--alcance`: Especificar el alcance del cambio (componente, módulo, etc.)
 - `--mensaje`: Añadir mensaje personalizado adicional
 - `--validar`: Ejecutar validaciones antes del commit (lint, tests, build)
-- `--formato`: Formato de commit (conventional, angular, simple)
+- `--format`: Formato de commit (conventional, angular, simple)
 - `--interactive`: Modo interactivo para revisar antes de commitear
 - `--dry-run`: Mostrar el mensaje generado sin hacer commit
 
-### Ejemplos
+### Examples
 
 ```
 /auto-commit
-/auto-commit --tipo=feat --alcance=authentication
+/auto-commit --type=feat --alcance=authentication
 /auto-commit --mensaje="implementar login social" --validar=true
-/auto-commit --formato=conventional --interactive
+/auto-commit --format=conventional --interactive
 /auto-commit --dry-run
-/auto-commit --tipo=fix --validar=lint,test
+/auto-commit --type=fix --validar=lint,test
 ```
 
 ## Análisis Automático de Cambios
@@ -46,7 +46,7 @@ El comando `/auto-commit` analiza los cambios pendientes en el repositorio Git y
 
 #### 🚀 feat (Nuevas características)
 - Archivos nuevos añadidos
-- Nuevas funciones o métodos
+- Nuevas funciones o méall
 - Nuevos componentes React
 - Nuevas rutas o endpoints
 - Nuevas dependencias principales
@@ -284,13 +284,13 @@ Elección:
 ### Commits de Merge/Release
 ```bash
 # Auto-generar mensaje para merge
-/auto-commit --tipo=merge --mensaje="feat/user-dashboard into main"
+/auto-commit --type=merge --mensaje="feat/user-dashboard into main"
 
 # Commit de release con changelog automático
-/auto-commit --tipo=release --mensaje="v2.1.0" --changelog=true
+/auto-commit --type=release --mensaje="v2.1.0" --changelog=true
 
 # Hotfix urgente
-/auto-commit --tipo=hotfix --validar=minimal --priority=high
+/auto-commit --type=hotfix --validar=minimal --priority=high
 ```
 
 ### Múltiples Contextos
@@ -312,7 +312,7 @@ Elección:
 =========================
 
 📈 PATRONES DETECTADOS:
-• Este commit continúa el trabajo en autenticación iniciado hace 3 commits
+• Este commit continúa el tralow en autenticación iniciado hace 3 commits
 • Se detecta patrón de desarrollo por componentes
 • Código sigue convenciones establecidas del proyecto
 

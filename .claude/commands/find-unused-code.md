@@ -17,30 +17,30 @@ El comando `/find-unused-code` realiza un análisis profundo del proyecto para i
 - Propiedades de objetos no accedidas
 - Parámetros de función no utilizados
 
-## Uso
+## Usage
 
 ```
-/find-unused-code [directorio] [--tipos] [--severidad] [--incluir]
+/find-unused-code [directory] [--types] [--severity] [--incluir]
 ```
 
 ### Parámetros
 
-- `directorio` (opcional): Directorio específico a analizar. Por defecto analiza todo el proyecto.
-- `--tipos`: Tipos específicos a buscar (variables, funciones, imports, exports, archivos, css, deps)
-- `--severidad`: Nivel de impacto (alto, medio, bajo, todos)
+- `directory` (opcional): directory específico a analizar. Por defecto analiza todo el proyecto.
+- `--types`: Tipos específicos a buscar (variables, funciones, imports, exports, archivos, css, deps)
+- `--severity`: Nivel de impacto (high, medium, low, all)
 - `--incluir`: Incluir categorías específicas (test-files, node-modules, config-files)
 - `--exclude-patterns`: Patrones de archivos a excluir
 - `--min-size`: Tamaño mínimo de código para considerar (en líneas)
 
-### Ejemplos
+### Examples
 
 ```
 /find-unused-code
-/find-unused-code src/ --tipos=variables,funciones
-/find-unused-code --tipos=imports --severidad=alto
-/find-unused-code components/ --tipos=react --incluir=test-files
-/find-unused-code --tipos=deps --severidad=alto
-/find-unused-code styles/ --tipos=css
+/find-unused-code src/ --types=variables,funciones
+/find-unused-code --types=imports --severity=high
+/find-unused-code components/ --types=react --incluir=test-files
+/find-unused-code --types=deps --severity=high
+/find-unused-code styles/ --types=css
 ```
 
 ## Patrones Detectados
@@ -54,7 +54,7 @@ El comando `/find-unused-code` realiza un análisis profundo del proyecto para i
 ### Funciones No Utilizadas
 - Funciones declaradas pero nunca llamadas
 - Arrow functions sin referencias
-- Métodos de clase no invocados
+- Méall de clase no invocados
 - Callbacks no utilizados
 
 ### Imports/Exports No Utilizados
@@ -94,7 +94,7 @@ El comando utiliza `.claude/find-unused-code-config.json`:
 
 ```json
 {
-  "severity": "medio",
+  "severity": "medium",
   "analysis": {
     "variables": true,
     "functions": true,
@@ -177,56 +177,56 @@ El comando utiliza `.claude/find-unused-code-config.json`:
 🔍 VARIABLES NO UTILIZADAS (15):
 
 📁 src/components/UserProfile.tsx
-  💡 [MEDIO] Línea 12: const unusedVariable = getData()
+  💡 [medium] Línea 12: const unusedVariable = getData()
      > Declarada pero nunca referenciada
      💾 Impacto: 1 línea
 
-  💡 [BAJO] Línea 25: const { name, ...unused } = props
+  💡 [low] Línea 25: const { name, ...unused } = props
      > Destructuring no utilizado
      💾 Impacto: 1 línea
 
 📁 src/utils/helpers.js
-  ⚠️ [ALTO] Línea 5: function calculateTotal(items) { ... }
+  ⚠️ [high] Línea 5: function calculateTotal(items) { ... }
      > Función completa sin uso (15 líneas)
      💾 Impacto: 15 líneas
 
 🔍 IMPORTS NO UTILIZADOS (23):
 
 📁 src/components/Dashboard.tsx
-  💡 [MEDIO] Línea 3: import { useState } from 'react'
+  💡 [medium] Línea 3: import { useState } from 'react'
      > Hook importado pero no utilizado
      
-  💡 [MEDIO] Línea 5: import lodash from 'lodash'
+  💡 [medium] Línea 5: import lodash from 'lodash'
      > Librería importada sin uso
 
 🔍 ARCHIVOS SIN REFERENCIAS (5):
 
 📁 src/components/OldButton.tsx (68 líneas)
-  ❌ [ALTO] Archivo completo sin imports ni referencias
+  ❌ [high] Archivo completo sin imports ni referencias
      > Componente React no utilizado en ningún lugar
      💾 Impacto: 68 líneas + eliminación segura
      
 📁 src/utils/deprecated.js (95 líneas)
-  ❌ [ALTO] Utilidades legacy sin referencias
+  ❌ [high] Utilidades legacy sin referencias
      💾 Impacto: 95 líneas + eliminación segura
 
 🔍 CSS NO UTILIZADO (12):
 
 📁 src/styles/components.css
-  💡 [MEDIO] .unused-button-style { ... }
+  💡 [medium] .unused-button-style { ... }
      > Class CSS no aplicada en JSX
      
-  💡 [BAJO] #unique-id { ... }
+  💡 [low] #unique-id { ... }
      > ID selector sin referencias en HTML/JSX
 
 🔍 DEPENDENCIAS NO UTILIZADAS (3):
 
 📁 package.json
-  ⚠️ [ALTO] "moment": "^2.29.4"
+  ⚠️ [high] "moment": "^2.29.4"
      > Dependencia no importada en ningún archivo
      💾 Impacto: ~67KB en bundle
      
-  💡 [MEDIO] "uuid": "^9.0.0"
+  💡 [medium] "uuid": "^9.0.0"
      > Utilizada solo en tests, mover a devDependencies
 ```
 
@@ -250,7 +250,7 @@ El comando utiliza `.claude/find-unused-code-config.json`:
 • moment dependency - 67KB de impacto en bundle
 
 ⚡ COMANDOS SUGERIDOS:
-/fix-unused --auto --tipos=variables,imports
+/fix-unused --auto --types=variables,imports
 /remove-files --confirm --archivos=src/components/OldButton.tsx
 npm uninstall moment uuid && npm install --save-dev uuid
 ```
@@ -274,7 +274,7 @@ npm uninstall moment uuid && npm install --save-dev uuid
 ```bash
 #!/bin/sh
 # .git/hooks/pre-commit
-UNUSED=$(npx claude-power find-unused-code --severidad=alto --tipos=variables,imports)
+UNUSED=$(npx claude-power find-unused-code --severity=high --types=variables,imports)
 if [ $? -eq 0 ] && [ ! -z "$UNUSED" ]; then
   echo "⚠️ Unused code detected. Run cleanup before commit:"
   echo "$UNUSED"
@@ -304,25 +304,25 @@ fi
 ### Análisis de Bundle Size
 ```bash
 # Detectar código no usado que impacta el bundle
-/find-unused-code --tipos=deps,imports --severidad=alto --output=json
+/find-unused-code --types=deps,imports --severity=high --output=json
 ```
 
 ### Limpieza de Legacy Code
 ```bash
 # Encontrar archivos y funciones de features antiguas
-/find-unused-code src/legacy/ --tipos=archivos,funciones --min-size=10
+/find-unused-code src/legacy/ --types=archivos,funciones --min-size=10
 ```
 
 ### Optimización de CSS
 ```bash
 # Detectar estilos no utilizados en componentes
-/find-unused-code styles/ --tipos=css --incluir=components
+/find-unused-code styles/ --types=css --incluir=components
 ```
 
 ### Análisis de Test Coverage
 ```bash
 # Encontrar código de tests no utilizado
-/find-unused-code tests/ --incluir=test-files --tipos=funciones
+/find-unused-code tests/ --incluir=test-files --types=funciones
 ```
 
 ---

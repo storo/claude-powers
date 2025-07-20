@@ -16,15 +16,15 @@ El comando `/security-fortress` establece un escudo de seguridad completo alrede
 - **Penetration testing** continuo
 - **Audit trails** completos y automáticos
 
-## Uso
+## Usage
 
 ```
-/security-fortress [directorio] [--scan] [--harden] [--monitor] [--compliance]
+/security-fortress [directory] [--scan] [--harden] [--monitor] [--compliance]
 ```
 
 ### Parámetros
 
-- `directorio`: Directorio específico a asegurar
+- `directory`: directory específico a asegurar
 - `--scan`: Tipos de scan (static, dynamic, dependency, secrets, compliance)
 - `--harden`: Nivel de hardening (basic, advanced, paranoid)
 - `--monitor`: Monitoreo en tiempo real (threats, intrusion, anomaly)
@@ -33,7 +33,7 @@ El comando `/security-fortress` establece un escudo de seguridad completo alrede
 - `--penetration-test`: Ejecutar penetration testing
 - `--audit-trail`: Generar audit trail completo
 
-### Ejemplos
+### Examples
 
 ```
 /security-fortress

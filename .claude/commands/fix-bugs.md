@@ -15,16 +15,16 @@ El comando `/fix-bugs` representa el futuro de la corrección de bugs:
 - **Explicaciones detalladas** de cada fix aplicado
 - **Prevention suggestions** para evitar bugs similares
 
-## Uso
+## Usage
 
 ```
-/fix-bugs [directorio] [--tipos] [--confidence] [--mode] [--test-after]
+/fix-bugs [directory] [--types] [--confidence] [--mode] [--test-after]
 ```
 
 ### Parámetros
 
-- `directorio`: Directorio específico a analizar y corregir
-- `--tipos`: Tipos de bugs a buscar (memory-leaks, null-pointers, race-conditions, etc.)
+- `directory`: directory específico a analizar y corregir
+- `--types`: Tipos de bugs a buscar (memory-leaks, null-pointers, race-conditions, etc.)
 - `--confidence`: Nivel de confianza mínimo para aplicar fixes (low, medium, high)
 - `--mode`: Modo de operación (safe, aggressive, learning, preview)
 - `--test-after`: Ejecutar tests después de cada fix
@@ -32,14 +32,14 @@ El comando `/fix-bugs` representa el futuro de la corrección de bugs:
 - `--explain`: Explicar cada fix realizado
 - `--prevent`: Sugerir cambios para prevenir bugs similares
 
-### Ejemplos
+### Examples
 
 ```
 /fix-bugs
-/fix-bugs src/ --tipos=memory-leaks,null-pointers --confidence=high
+/fix-bugs src/ --types=memory-leaks,null-pointers --confidence=high
 /fix-bugs --mode=safe --test-after --rollback-on-fail
 /fix-bugs utils/ --mode=learning --explain
-/fix-bugs --tipos=race-conditions --confidence=medium --prevent
+/fix-bugs --types=race-conditions --confidence=medium --prevent
 /fix-bugs components/ --mode=preview --dry-run
 ```
 
@@ -412,7 +412,7 @@ Tiempo de análisis: 23.4s
 • Bugs críticos eliminados: 19 → 0 (100% reducción)
 • Vulnerabilidades de seguridad: 4 → 0 (100% reducción)
 • Warnings estáticos: 87 → 23 (73% reducción)
-• Complejidad ciclomática promedio: 8.2 → 6.4 (22% mejora)
+• Complejidad ciclomática promedium: 8.2 → 6.4 (22% mejora)
 
 💡 PREVENCIÓN SUGERIDA:
 1. Configurar ESLint rules para memory leaks

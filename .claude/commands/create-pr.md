@@ -15,16 +15,16 @@ El comando `/create-pr` automatiza completamente la creación de pull requests:
 - **Checklist de validación** pre-configurado
 - **Integración con issues** y tickets
 
-## Uso
+## Usage
 
 ```
-/create-pr [--titulo] [--tipo] [--base] [--target] [--template] [--reviewers]
+/create-pr [--titulo] [--type] [--base] [--target] [--template] [--reviewers]
 ```
 
 ### Parámetros
 
 - `--titulo`: Título personalizado del PR (auto-generado si se omite)
-- `--tipo`: Tipo de PR (feature, bugfix, hotfix, docs, chore)
+- `--type`: Tipo de PR (feature, bugfix, hotfix, docs, chore)
 - `--base`: Branch base (main, develop, master)
 - `--target`: Branch destino (current branch por defecto)
 - `--template`: Template específico a usar
@@ -33,15 +33,15 @@ El comando `/create-pr` automatiza completamente la creación de pull requests:
 - `--draft`: Crear como draft PR
 - `--auto-merge`: Habilitar auto-merge tras aprobaciones
 
-### Ejemplos
+### Examples
 
 ```
 /create-pr
-/create-pr --titulo="Implementar dashboard de usuario" --tipo=feature
+/create-pr --titulo="Implementar dashboard de usuario" --type=feature
 /create-pr --base=develop --reviewers=@john,@mary --labels=enhancement
 /create-pr --template=hotfix --auto-merge=true
-/create-pr --draft --tipo=feature
-/create-pr --tipo=docs --target=gh-pages
+/create-pr --draft --type=feature
+/create-pr --type=docs --target=gh-pages
 ```
 
 ## Análisis Automático de PR
@@ -389,19 +389,19 @@ Ninguno - completamente backward compatible
 ### Release PR
 ```bash
 # PR automático para release
-/create-pr --tipo=release --template=release --auto-changelog=true --version=2.1.0
+/create-pr --type=release --template=release --auto-changelog=true --version=2.1.0
 ```
 
 ### Security PR  
 ```bash
 # PR para fix de seguridad
-/create-pr --tipo=security --template=security --priority=high --reviewers=@security-team
+/create-pr --type=security --template=security --priority=high --reviewers=@security-team
 ```
 
 ### Documentation PR
 ```bash
 # PR solo para docs
-/create-pr --tipo=docs --target=gh-pages --auto-merge=true
+/create-pr --type=docs --target=gh-pages --auto-merge=true
 ```
 
 ## Análisis IA Avanzado
@@ -414,7 +414,7 @@ Ninguno - completamente backward compatible
 📈 COMPLEJIDAD:
 • Cognitive Complexity: Media (7/10)
 • Cyclomatic Complexity: 12 (dentro de límites)
-• Dependencies Impact: Bajo
+• Dependencies Impact: low
 
 ⚡ PERFORMANCE:
 • Bundle Size Impact: +15KB (+2.3%)
