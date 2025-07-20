@@ -29,7 +29,7 @@ The `/find-unused-code` command performs deep project analysis to identify:
 - `--types`: Tipos específicos a buscar (variables, functions, imports, exports, files, css, deps)
 - `--severity`: Nivel de impacto (high, medium, low, all)
 - `--include`: Incluir categorías específicas (test-files, node-modules, config-files)
-- `--exclude-patterns`: Patrones de files a excluir
+- `--exclude-patterns`: Patterns de files a excluir
 - `--min-size`: Tamaño mínimo de código para considerar (en líneas)
 
 ### Examples
@@ -43,7 +43,7 @@ The `/find-unused-code` command performs deep project analysis to identify:
 /find-unused-code styles/ --types=css
 ```
 
-## Patrones Detectados
+## Patterns Detectados
 
 ### Variables No Utilizadas
 - Variables declaradas con let, const, var sin uso

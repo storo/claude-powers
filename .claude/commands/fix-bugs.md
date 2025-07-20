@@ -10,7 +10,7 @@ El comando `/fix-bugs` representa el futuro de la corrección de bugs:
 - **Análisis de root cause** para entender el problema real
 - **Corrección inteligente** que preserva funcionalidad
 - **Testing automático** de fixes antes de aplicar
-- **Learning mode** que aprende de patrones del proyecto
+- **Learning mode** que aprende de Patterns del proyecto
 - **Safe mode** con rollback automático si algo falla
 - **Explicaciones detalladas** de cada fix aplicado
 - **Prevention suggestions** para evitar bugs similares
@@ -427,7 +427,7 @@ Tiempo de análisis: 23.4s
 🧠 CLAUDE POWER - LEARNING MODE INSIGHTS
 ========================================
 
-📈 PATRONES DETECTADOS EN TU PROYECTO:
+📈 Patterns DETECTADOS EN TU PROYECTO:
 • Uso frecuente de useEffect sin cleanup (8 casos)
 • Patrón común: fetching data en componentes (12 casos)
 • Anti-patrón: null checks inconsistentes (15 casos)
@@ -440,7 +440,7 @@ Tiempo de análisis: 23.4s
 4. Crear wrapper component para error boundaries
 
 📚 KNOWLEDGE BASE ACTUALIZADA:
-• Guardados 23 nuevos patrones de bugs específicos del proyecto
+• Guardados 23 nuevos Patterns de bugs específicos del proyecto
 • Actualizada confianza en 12 tipos de fixes
 • Aprendidas 8 nuevas estrategias de prevención
 • Generadas 15 reglas ESLint personalizadas

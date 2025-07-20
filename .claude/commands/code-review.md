@@ -61,7 +61,7 @@ The `/code-review` command provides complete and professional code review using 
 - DRY (Don't Repeat Yourself)
 - Facilidad de modificación
 
-### 🏛️ Arquitectura y Patrones
+### 🏛️ Arquitectura y Patterns
 
 #### Estructura del Proyecto
 - Organización de directorys
@@ -69,9 +69,9 @@ The `/code-review` command provides complete and professional code review using 
 - Modularidad y encapsulación
 - Dependencias y acoplamiento
 
-#### Patrones de Diseño
-- Implementación de patrones apropiados
-- Anti-patrones detectados
+#### Patterns de Diseño
+- Implementación de Patterns apropiados
+- Anti-Patterns detectados
 - Arquitectura escalable
 - Principios de diseño
 
@@ -247,7 +247,7 @@ src/components/Dashboard.tsx (Línea 120-145)
   🟡 moderate: Anidamiento profundo en renderWidgets()
   💡 SUGERENCIA: Usar early returns o component extraction
 
-🏛️ ARQUITECTURA Y PATRONES (7.8/10)
+🏛️ ARQUITECTURA Y Patterns (7.8/10)
 ===================================
 
 ✅ FORTALEZAS:

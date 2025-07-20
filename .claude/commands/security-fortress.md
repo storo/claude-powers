@@ -481,7 +481,7 @@ const ThreatDetection = {
       userId: req.user?.id
     };
     
-    // Patrones anómalos detectados automáticamente
+    // Patterns anómalos detectados automáticamente
     const anomalies = [];
     
     // Geographic anomaly

@@ -8,7 +8,7 @@ El comando `/explain-code` es tu profesor personal de código que transforma có
 
 - **Explicaciones contextuales** adaptadas al nivel del desarrollador
 - **Análisis de flujo de datos** y control de programa
-- **Detección de patrones** y arquitecturas utilizadas
+- **Detección de Patterns** y arquitecturas utilizadas
 - **Business logic** extraído y explicado claramente
 - **Diagramas automáticos** para visualizar la lógica
 - **Ejemplos interactivos** para facilitar comprensión
@@ -221,7 +221,7 @@ AuthenticationService
 • Se puede hacer el AuditLogger asíncrono
 • TokenService puede usar clusters para performance
 
-📊 PATRONES ENTERPRISE APLICADOS:
+📊 Patterns ENTERPRISE APLICADOS:
 • ✅ Dependency Injection
 • ✅ Repository Pattern  
 • ✅ Service Layer
@@ -591,7 +591,7 @@ src/services/PaymentProcessor.js (234 líneas)
 
 🔍 ANÁLISIS AUTOMÁTICO:
 • Complejidad: Media (7.2/10)
-• Patrones detectados: Factory, Observer, Strategy
+• Patterns detectados: Factory, Observer, Strategy
 • Conceptos clave: Async programming, Error handling, State machine
 • Business logic: Payment processing workflow
 • Audiencia sugerida: Intermediate developers
@@ -633,7 +633,7 @@ src/services/PaymentProcessor.js (234 líneas)
 
 🎯 SECCIONES INCLUIDAS:
 ✅ Propósito y responsabilidades
-✅ Arquitectura y patrones utilizados
+✅ Arquitectura y Patterns utilizados
 ✅ Flujo de datos paso a paso
 ✅ Manejo de errores y edge cases
 ✅ Consideraciones de seguridad

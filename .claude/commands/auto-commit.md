@@ -311,7 +311,7 @@ Elección:
 🧠 ANÁLISIS CONTEXTUAL IA:
 =========================
 
-📈 PATRONES DETECTADOS:
+📈 Patterns DETECTADOS:
 • Este commit continúa el tralow en autenticación iniciado hace 3 commits
 • Se detecta patrón de desarrollo por componentes
 • Código sigue convenciones establecidas del proyecto

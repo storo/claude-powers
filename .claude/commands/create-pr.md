@@ -1,19 +1,19 @@
 # Create PR Command
 
-Crea pull requests automáticos con descripciones inteligentes, templates y análisis de cambios.
+Creates automatic pull requests with intelligent descriptions, templates, and change analysis.
 
-## Descripción
+## Description
 
-El comando `/create-pr` automatiza completamente la creación de pull requests:
+The `/create-pr` command completely automates pull request creation:
 
-- **Análisis automático** de commits y cambios
-- **Generación de descripciones** detalladas e inteligentes
-- **Detección de tipo de PR** (feature, bugfix, hotfix, etc.)
-- **Templates personalizados** según el tipo de cambio
-- **Revisores sugeridos** basados en los files modificados
-- **Labels automáticos** según el contenido
-- **Checklist de validación** pre-configurado
-- **Integración con issues** y tickets
+- **Automatic analysis** of commits and changes
+- **Generation of detailed and intelligent descriptions**
+- **PR type detection** (feature, bugfix, hotfix, etc.)
+- **Personalized templates** based on change type
+- **Suggested reviewers** based on modified files
+- **Automatic labels** based on content
+- **Pre-configured validation checklist**
+- **Integration with issues** and tickets
 
 ## Usage
 
@@ -21,32 +21,32 @@ El comando `/create-pr` automatiza completamente la creación de pull requests:
 /create-pr [--title] [--type] [--base] [--target] [--template] [--reviewers]
 ```
 
-### Parámetros
+### Parameters
 
-- `--title`: Título personalizado del PR (auto-generado si se omite)
-- `--type`: Tipo de PR (feature, bugfix, hotfix, docs, chore)
-- `--base`: Branch base (main, develop, master)
-- `--target`: Branch destino (current branch por defecto)
-- `--template`: Template específico a usar
-- `--reviewers`: Lista de revisores (auto-sugeridos si se omite)
-- `--labels`: Labels a añadir (auto-detectados si se omite)
-- `--draft`: Crear como draft PR
-- `--auto-merge`: Habilitar auto-merge tras aprobaciones
+- `--title`: Custom PR title (auto-generated if omitted)
+- `--type`: PR type (feature, bugfix, hotfix, docs, chore)
+- `--base`: Base branch (main, develop, master)
+- `--target`: Target branch (current branch by default)
+- `--template`: Specific template to use
+- `--reviewers`: List of reviewers (auto-suggested if omitted)
+- `--labels`: Labels to add (auto-detected if omitted)
+- `--draft`: Create as draft PR
+- `--auto-merge`: Enable auto-merge after approvals
 
 ### Examples
 
 ```
 /create-pr
-/create-pr --title="Implementar dashboard de usuario" --type=feature
+/create-pr --title="Implement user dashboard" --type=feature
 /create-pr --base=develop --reviewers=@john,@mary --labels=enhancement
 /create-pr --template=hotfix --auto-merge=true
 /create-pr --draft --type=feature
 /create-pr --type=docs --target=gh-pages
 ```
 
-## Análisis Automático de PR
+## Automatic PR Analysis
 
-### Detección de Tipo de PR
+### PR Type Detection
 
 #### 🚀 Feature PR
 - Nuevas funcionalidades
@@ -244,7 +244,7 @@ Fixes #{issue_number}
 
 📊 ANÁLISIS DE CAMBIOS:
 ┌─────────────────┬─────────┬─────────────┐
-│ Categoría       │ files│ Complejidad │
+│ Categoría       │ Archivos│ Complejidad │
 ├─────────────────┼─────────┼─────────────┤
 │ Frontend        │    8    │ Media       │
 │ Backend         │    3    │ Baja        │
@@ -265,7 +265,7 @@ Fixes #{issue_number}
 • size/medium
 
 👥 REVIEWERS SUGERIDOS:
-• @frontend-team (files UI modificados)
+• @frontend-team (archivos UI modificados)
 • @john-doe (CODEOWNER de auth/)
 • @security-team (cambios en autenticación)
 ```
@@ -327,7 +327,7 @@ Ninguno - completamente backward compatible
 ✅ Tests coverage > 80%
 ✅ No secrets o credentials expuestos
 ✅ Documentación actualizada
-⚠️ 2 files grandes detectados (considerar split)
+⚠️ 2 archivos grandes detectados (considerar split)
 ✅ CODEOWNERS notificados
 
 🚦 RESULTADO: ✅ LISTO PARA CREAR PR
@@ -389,19 +389,19 @@ Ninguno - completamente backward compatible
 ### Release PR
 ```bash
 # PR automático para release
-/create-pr --type=release --template=release --auto-changelog=true --version=2.1.0
+/create-pr --tipo=release --template=release --auto-changelog=true --version=2.1.0
 ```
 
 ### Security PR  
 ```bash
 # PR para fix de seguridad
-/create-pr --type=security --template=security --priority=high --reviewers=@security-team
+/create-pr --tipo=security --template=security --priority=high --reviewers=@security-team
 ```
 
 ### Documentation PR
 ```bash
 # PR solo para docs
-/create-pr --type=docs --target=gh-pages --auto-merge=true
+/create-pr --tipo=docs --target=gh-pages --auto-merge=true
 ```
 
 ## Análisis IA Avanzado
@@ -414,7 +414,7 @@ Ninguno - completamente backward compatible
 📈 COMPLEJIDAD:
 • Cognitive Complexity: Media (7/10)
 • Cyclomatic Complexity: 12 (dentro de límites)
-• Dependencies Impact: low
+• Dependencies Impact: Bajo
 
 ⚡ PERFORMANCE:
 • Bundle Size Impact: +15KB (+2.3%)

@@ -36,38 +36,38 @@ The `/find-bugs` command analyzes code looking for common patterns that may indi
 /find-bugs . --types=ts --severity=medium
 ```
 
-## Patrones Detectados
+## Detected Patterns
 
 ### JavaScript/TypeScript
-- `== null` o `== undefined` (usar `===`)
-- Variables no declaradas o sin tipo
-- functions async sin await
-- Promises sin catch
-- Memory leaks en event listeners
-- Closures con referencias circulares
+- `== null` or `== undefined` (use `===`)
+- Undeclared variables or without type
+- Async functions without await
+- Promises without catch
+- Memory leaks in event listeners
+- Closures with circular references
 
 ### React
-- Hooks con dependencias faltantes
-- State mutations directas
-- Keys duplicadas o no únicas
-- useEffect sin cleanup
-- Props no validadas
+- Hooks with missing dependencies
+- Direct state mutations
+- Duplicate or non-unique keys
+- useEffect without cleanup
+- Unvalidated props
 
 ### Node.js
-- files no cerrados
-- Streams sin manejo de errores
-- Process exit sin cleanup
-- Variables de entorno faltantes
+- Unclosed files
+- Streams without error handling
+- Process exit without cleanup
+- Missing environment variables
 
 ### General
-- Código duplicado
-- functions muy largas (>50 líneas)
-- Ciclos infinitos potenciales
-- Condiciones siempre true/false
+- Duplicate code
+- Very long functions (>50 lines)
+- Potential infinite loops
+- Always true/false conditions
 
-## Configuración
+## Configuration
 
-El comando utiliza un archivo de configuración `.claude/find-bugs-config.json` para personalizar las reglas:
+The command uses a configuration file `.claude/find-bugs-config.json` to customize rules:
 
 ```json
 {
