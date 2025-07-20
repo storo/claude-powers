@@ -1,5 +1,5 @@
 {
-  "severity": "medio",
+  "severity": "medium",
   "analysis": {
     "variables": true,
     "functions": true,
@@ -124,19 +124,19 @@
     ]
   },
   "severityRules": {
-    "alto": {
+    "high": {
       "fileSize": 50,
       "bundleImpact": 50000,
       "complexity": 5,
       "dependencies": true
     },
-    "medio": {
+    "medium": {
       "fileSize": 10,
       "bundleImpact": 10000,
       "complexity": 3,
       "multipleFiles": true
     },
-    "bajo": {
+    "low": {
       "fileSize": 1,
       "bundleImpact": 1000,
       "complexity": 1,

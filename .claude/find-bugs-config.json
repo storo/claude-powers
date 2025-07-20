@@ -1,5 +1,5 @@
 {
-  "severity": "medio",
+  "severity": "medium",
   "rules": {
     "javascript": true,
     "typescript": true,
@@ -33,13 +33,13 @@
     {
       "pattern": "console\\.log\\(",
       "message": "Console.log detectado - considerar usar un logger",
-      "severity": "bajo",
+      "severity": "low",
       "category": "desarrollo"
     },
     {
       "pattern": "TODO|FIXME|HACK",
       "message": "Comentario de desarrollo pendiente",
-      "severity": "medio",
+      "severity": "medium",
       "category": "general"
     }
   ],
