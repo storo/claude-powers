@@ -1,20 +1,20 @@
 # Security Fortress Command
 
-Protección automática y proactiva contra amenazas usando IA avanzada para crear una fortaleza de seguridad impenetrable.
+Automatic and proactive threat protection using advanced AI to create an impenetrable security fortress.
 
-## Descripción
+## Description
 
-El comando `/security-fortress` establece un escudo de seguridad completo alrededor de tu aplicación:
+The `/security-fortress` command establishes a complete security shield around your application:
 
-- **Análisis de vulnerabilidades** en tiempo real
-- **Protección automática** contra ataques comunes
-- **Hardening automático** de configuraciones
-- **Monitoring proactivo** de amenazas
-- **Compliance automático** con estándares de seguridad
-- **Incident response** automatizado
-- **Security patches** aplicados automáticamente
-- **Penetration testing** continuo
-- **Audit trails** completos y automáticos
+- **Real-time vulnerability analysis**
+- **Automatic protection** against common attacks
+- **Automatic configuration hardening**
+- **Proactive threat monitoring**
+- **Automatic compliance** with security standards
+- **Automated incident response**
+- **Automatically applied security patches**
+- **Continuous penetration testing**
+- **Complete and automatic audit trails**
 
 ## Usage
 
@@ -22,16 +22,16 @@ El comando `/security-fortress` establece un escudo de seguridad completo alrede
 /security-fortress [directory] [--scan] [--harden] [--monitor] [--compliance]
 ```
 
-### Parámetros
+### Parameters
 
-- `directory`: directory específico a asegurar
-- `--scan`: Tipos de scan (static, dynamic, dependency, secrets, compliance)
-- `--harden`: Nivel de hardening (basic, advanced, paranoid)
-- `--monitor`: Monitoreo en tiempo real (threats, intrusion, anomaly)
-- `--compliance`: Estándares de compliance (owasp, sox, gdpr, hipaa, pci)
-- `--auto-fix`: Aplicar fixes automáticamente
-- `--penetration-test`: Ejecutar penetration testing
-- `--audit-trail`: Generar audit trail completo
+- `directory`: specific directory to secure
+- `--scan`: Scan types (static, dynamic, dependency, secrets, compliance)
+- `--harden`: Hardening level (basic, advanced, paranoid)
+- `--monitor`: Real-time monitoring (threats, intrusion, anomaly)
+- `--compliance`: Compliance standards (owasp, sox, gdpr, hipaa, pci)
+- `--auto-fix`: Apply fixes automatically
+- `--penetration-test`: Execute penetration testing
+- `--audit-trail`: Generate complete audit trail
 
 ### Examples
 
@@ -44,11 +44,11 @@ El comando `/security-fortress` establece un escudo de seguridad completo alrede
 /security-fortress api/ --compliance=pci --monitor=anomaly
 ```
 
-## Protecciones Automáticas
+## Automatic Protections
 
 ### 🛡️ Input Validation & Sanitization
 ```javascript
-// ❌ ANTES - Vulnerable a ataques
+// ❌ BEFORE - Vulnerable to attacks
 const UserController = {
   async createUser(req, res) {
     const { name, email, bio } = req.body;
@@ -70,20 +70,20 @@ const UserController = {
   }
 };
 
-// ✅ DESPUÉS - Protegido automáticamente
+// ✅ AFTER - Automatically Protected
 import { body, param, validationResult } from 'express-validator';
 import DOMPurify from 'dompurify';
 import rateLimit from 'express-rate-limit';
 
 const UserController = {
-  // Rate limiting agregado automáticamente
+  // Automatically added Rate limiting
   createUserLimiter: rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 5, // 5 requests per window
     message: 'Too many user creation attempts'
   }),
   
-  // Validation middleware agregado automáticamente
+  // Automatically added Validation middleware
   validateCreateUser: [
     body('name')
       .isLength({ min: 2, max: 50 })
@@ -112,7 +112,7 @@ const UserController = {
     
     const { name, email, bio } = req.body;
     
-    // Sanitización automática agregada
+    // Automatically added Sanitization
     const sanitizedData = {
       name: DOMPurify.sanitize(name.trim()),
       email: email.toLowerCase().trim(),
@@ -120,10 +120,10 @@ const UserController = {
     };
     
     try {
-      // Prepared statements automáticamente aplicados
+      // Automatically applied Prepared statements
       const user = await User.create(sanitizedData);
       
-      // Audit log automáticamente agregado
+      // Automatically added Audit log
       await AuditLog.create({
         action: 'USER_CREATED',
         userId: user.id,
@@ -140,7 +140,7 @@ const UserController = {
         timestamp: new Date().toISOString()
       });
     } catch (error) {
-      // Error logging sin información sensible
+      // Error logging without sensitive information
       logger.error('User creation failed', {
         error: error.message,
         requestId: req.id,
@@ -158,7 +158,7 @@ const UserController = {
 
 ### 🔐 Authentication & Authorization
 ```javascript
-// ❌ ANTES - Autenticación débil
+// ❌ BEFORE - Weak Authentication
 const auth = {
   async login(req, res) {
     const { email, password } = req.body;
@@ -181,7 +181,7 @@ const auth = {
   }
 };
 
-// ✅ DESPUÉS - Autenticación reforzada automáticamente
+// ✅ AFTER - Automatically Reinforced Authentication
 import bcrypt from 'bcrypt';
 import speakeasy from 'speakeasy';
 import { RateLimiterRedis } from 'rate-limiter-flexible';
@@ -204,7 +204,7 @@ const auth = {
       // Check brute force protection
       await this.bruteForceProtection.consume(clientIp);
       
-      // Enhanced user lookup con timing attack protection
+      // Enhanced user lookup with timing attack protection
       const user = await User.findOne({ 
         where: { email: email.toLowerCase() },
         attributes: ['id', 'email', 'passwordHash', 'totpSecret', 'isActive', 'lockoutUntil']
@@ -324,10 +324,10 @@ const auth = {
 
 ### 🔒 Data Protection & Encryption
 ```javascript
-// ❌ ANTES - Datos sin protección
+// ❌ BEFORE - Unprotected Data
 const UserService = {
   async createUser(userData) {
-    // Datos sensibles sin encriptar
+    // Sensitive data unencrypted
     const user = await User.create({
       email: userData.email,
       ssn: userData.ssn,
@@ -343,24 +343,24 @@ const UserService = {
   }
 };
 
-// ✅ DESPUÉS - Protección de datos automática
+// ✅ AFTER - Automatic Data Protection
 import crypto from 'crypto';
 import { encrypt, decrypt } from '../utils/encryption';
 
 const UserService = {
-  // Campo-level encryption automáticamente agregada
+  // Automatically added Field-level encryption
   encryptionConfig: {
     ssn: { encrypt: true, algorithm: 'aes-256-gcm' },
     creditCard: { encrypt: true, algorithm: 'aes-256-gcm' },
     address: { encrypt: true, algorithm: 'aes-256-gcm' },
-    email: { hash: true, algorithm: 'sha-256' } // Para búsquedas
+    email: { hash: true, algorithm: 'sha-256' } // For searches
   },
   
   async createUser(userData) {
-    // Data classification automática
+    // Automatic Data classification
     const classifiedData = await this.classifyData(userData);
     
-    // Encryption automática de campos sensibles
+    // Automatic Encryption of sensitive fields
     const encryptedData = {};
     
     for (const [field, value] of Object.entries(userData)) {
@@ -368,7 +368,7 @@ const UserService = {
       
       if (config?.encrypt) {
         encryptedData[field] = await encrypt(value, config.algorithm);
-        // Hash para indexing
+        // Hash for indexing
         encryptedData[`${field}_hash`] = crypto
           .createHash('sha-256')
           .update(value)
@@ -386,7 +386,7 @@ const UserService = {
     
     const user = await User.create(encryptedData);
     
-    // Audit log para datos sensibles
+    // Audit log for sensitive data
     await DataAccessLog.create({
       action: 'USER_CREATED',
       userId: user.id,
@@ -408,14 +408,14 @@ const UserService = {
     const user = await User.findById(id);
     if (!user) return null;
     
-    // Automatic decryption para campos autorizados
+    // Automatic decryption for authorized fields
     const decryptedUser = {};
     
     for (const [field, value] of Object.entries(user.toJSON())) {
       const config = this.encryptionConfig[field];
       
       if (config?.encrypt && value) {
-        // Check si el usuario tiene permisos para este campo
+        // Check if the user has permissions for this field
         const hasFieldAccess = await this.checkFieldAccess(
           requesterUserId, 
           field, 
@@ -432,7 +432,7 @@ const UserService = {
       }
     }
     
-    // Audit log para acceso a datos
+    // Audit log for data access
     await DataAccessLog.create({
       action: 'USER_ACCESSED',
       userId: id,
@@ -448,11 +448,11 @@ const UserService = {
   sanitizeForResponse(userData) {
     const sanitized = { ...userData };
     
-    // Remove campos internos
+    // Remove internal fields
     delete sanitized.passwordHash;
     delete sanitized.totpSecret;
     
-    // Mask campos sensibles si no está autorizado completamente
+    // Mask sensitive fields if not fully authorized
     if (sanitized.ssn && !this.isFullyAuthorized()) {
       sanitized.ssn = `***-**-${sanitized.ssn.slice(-4)}`;
     }
@@ -468,9 +468,9 @@ const UserService = {
 
 ### 🚨 Threat Detection & Response
 ```javascript
-// Sistema de detección automática de amenazas
+// Automatic threat detection system
 const ThreatDetection = {
-  // Anomaly detection con machine learning
+  // Anomaly detection with machine learning
   async detectAnomalies(req, res, next) {
     const userBehavior = {
       ipAddress: req.ip,
@@ -481,7 +481,7 @@ const ThreatDetection = {
       userId: req.user?.id
     };
     
-    // Patterns anómalos detectados automáticamente
+    // Automatically detected anomalous patterns
     const anomalies = [];
     
     // Geographic anomaly
@@ -520,7 +520,7 @@ const ThreatDetection = {
       });
     }
     
-    // Response automática a amenazas
+    // Automatic threat response
     if (anomalies.some(a => a.risk === 'HIGH')) {
       // Step-up authentication
       req.requireStepUp = true;
@@ -532,11 +532,11 @@ const ThreatDetection = {
         request: userBehavior
       });
       
-      // Rate limit más strict
+      // Stricter rate limit
       await this.applyStrictRateLimit(req.ip);
     }
     
-    // Log todas las anomalías
+    // Log all anomalies
     if (anomalies.length > 0) {
       await ThreatLog.create({
         userId: req.user?.id,
@@ -576,7 +576,7 @@ const ThreatDetection = {
 };
 ```
 
-## Configuración
+## Configuration
 
 `.claude/security-fortress-config.json`:
 
@@ -690,21 +690,21 @@ const ThreatDetection = {
 }
 ```
 
-## Salida del Comando
+## Command Output
 
 ### Security Assessment
 ```
 🛡️ CLAUDE POWER - SECURITY FORTRESS ANALYSIS
 ============================================
 
-🔍 SECURITY ASSESSMENT COMPLETADO:
-files escaneados: 1,247
-Vulnerabilidades detectadas: 23
-Tiempo de análisis: 3m 42s
+🔍 SECURITY ASSESSMENT COMPLETED:
+scanned files: 1,247
+detected vulnerabilities: 23
+analysis time: 3m 42s
 
-🚨 VULNERABILIDADES POR SEVERIDAD:
+🚨 VULNERABILITIES BY SEVERITY:
 ┌─────────────────────┬─────────┬─────────────┬─────────────┐
-│ Severidad           │ Count   │ Fixed       │ Remaining   │
+│ Severity            │ Count   │ Fixed       │ Remaining   │
 ├─────────────────────┼─────────┼─────────────┼─────────────┤
 │ Critical            │    3    │     3       │     0       │
 │ High                │    8    │     7       │     1       │
@@ -729,7 +729,7 @@ Tiempo de análisis: 3m 42s
 
 ### Protections Activated
 ```
-🛡️ PROTECCIONES ACTIVADAS AUTOMÁTICAMENTE:
+🛡️ AUTOMATICALLY ACTIVATED PROTECTIONS:
 ==========================================
 
 🔐 AUTHENTICATION & AUTHORIZATION:
@@ -815,4 +815,4 @@ Tiempo de análisis: 3m 42s
 
 ---
 
-*Parte del ecosistema **Claude Power** - Seguridad impenetrable automática* 🛡️🚀 
+*Part of the **Claude Power** ecosystem - Automatic impenetrable security* 🛡️🚀 
