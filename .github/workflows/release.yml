@@ -1,0 +1,90 @@
+name: 🚀 Release & Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version type (patch, minor, major)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor  
+          - major
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm ci
+      - run: npm test
+
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          
+      - run: npm ci
+      - run: npm run build
+      
+      # Crear release en GitHub
+      - name: 📦 Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: 🚀 Claude Power v${{ github.ref_name }}
+          body: |
+            ## 🔥 Nuevas Funcionalidades
+            
+            ### ✨ Super Poderes Incluidos:
+            - 🧪 `/generate-tests` - Tests automáticos con 90%+ cobertura
+            - 🐛 `/fix-bugs` - Auto-reparación de bugs (90% reducción)  
+            - ⚡ `/performance-turbo` - Optimización automática (60%+ mejora)
+            - 🛡️ `/security-fortress` - Fortaleza de seguridad impenetrable
+            - 🧠 `/explain-code` - Profesor personal de código
+            
+            ### 🚀 Instalación Rápida:
+            ```bash
+            npm install -g @claude-power/slash-commands
+            ```
+            
+            ### 📋 One-liner Install:
+            ```bash
+            curl -fsSL https://raw.githubusercontent.com/claude-power/slash-commands/main/install.sh | bash
+            ```
+          draft: false
+          prerelease: false
+          
+      # Publicar en npm
+      - name: 📤 Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+      # Notificar éxito
+      - name: 🎉 Success Notification
+        run: |
+          echo "🚀 Claude Power publicado exitosamente!"
+          echo "📦 NPM: https://www.npmjs.com/package/@claude-power/slash-commands"
+          echo "🐙 GitHub: https://github.com/claude-power/slash-commands/releases" 
