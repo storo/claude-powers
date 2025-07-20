@@ -19,95 +19,95 @@ The `/auto-commit` command analyzes pending changes in the Git repository and au
 /auto-commit [--type] [--scope] [--message] [--validate] [--format]
 ```
 
-### Parámetros
+### Parameters
 
-- `--type`: Forzar un tipo específico (feat, fix, docs, style, refactor, test, chore)
-- `--scope`: Especificar el alcance del cambio (componente, módulo, etc.)
-- `--message`: Añadir mensaje personalizado adicional
-- `--validate`: Ejecutar validaciones antes del commit (lint, tests, build)
-- `--format`: Formato de commit (conventional, angular, simple)
-- `--interactive`: Modo interactivo para revisar antes de commitear
-- `--dry-run`: Mostrar el mensaje generado sin hacer commit
+- `--type`: Force a specific type (feat, fix, docs, style, refactor, test, chore)
+- `--scope`: Specify the scope of the change (component, module, etc.)
+- `--message`: Add additional custom message
+- `--validate`: Run validations before commit (lint, tests, build)
+- `--format`: Commit format (conventional, angular, simple)
+- `--interactive`: Interactive mode to review before committing
+- `--dry-run`: Show the generated message without committing
 
 ### Examples
 
 ```
 /auto-commit
 /auto-commit --type=feat --scope=authentication
-/auto-commit --message="implementar login social" --validate=true
+/auto-commit --message="implement social login" --validate=true
 /auto-commit --format=conventional --interactive
 /auto-commit --dry-run
 /auto-commit --type=fix --validate=lint,test
 ```
 
-## Análisis Automático de Cambios
+## Automatic Change Analysis
 
-### Detección de Tipo de Cambio
+### Change Type Detection
 
-#### 🚀 feat (Nuevas características)
-- files nuevos añadidos
-- Nuevas functions o méall
-- Nuevos componentes React
-- Nuevas rutas o endpoints
-- Nuevas dependencias principales
+#### 🚀 feat (New features)
+- New files added
+- New functions or methods
+- New React components
+- New routes or endpoints
+- New main dependencies
 
-#### 🐛 fix (Corrección de bugs)
-- Cambios en condicionales o lógica
-- Corrección de typos
-- Manejo de errores mejorado
-- Fixes en CSS o estilos
-- Corrección de imports
+#### 🐛 fix (Bug fixes)
+- Changes in conditionals or logic
+- Typo corrections
+- Improved error handling
+- CSS or style fixes
+- Import corrections
 
-#### 📚 docs (Documentación)
-- Cambios en files .md
-- Actualizaciones en comentarios
-- README modificado
-- Cambios en JSDoc
+#### 📚 docs (Documentation)
+- Changes in .md files
+- Comment updates
+- README modified
+- JSDoc changes
 
-#### 💄 style (Formato/estilo)
-- Cambios solo de formato
-- Ajustes de linting
-- Espacios en blanco
-- Organización de imports
+#### 💄 style (Formatting/style)
+- Format-only changes
+- Linting adjustments
+- Whitespace
+- Import organization
 
 #### ♻️ refactor (Refactoring)
-- Reorganización de código
-- Extracción de functions
-- Cambios de nombres
-- Optimizaciones sin cambio funcional
+- Code reorganization
+- Function extraction
+- Name changes
+- Optimizations without functional change
 
 #### ✅ test (Tests)
-- files .test.* o .spec.*
-- Carpetas __tests__
-- Configuración de testing
+- .test.* or .spec.* files
+- __tests__ folders
+- Testing configuration
 
-#### 🔧 chore (Tareas de mantenimiento)
-- package.json modificado
-- Configuración de build
-- Scripts de automatización
-- .gitignore actualizado
+#### 🔧 chore (Maintenance tasks)
+- package.json modified
+- Build configuration
+- Automation scripts
+- .gitignore updated
 
-### Detección de Alcance
+### Scope Detection
 
 ```javascript
-// Detecta automáticamente el alcance basado en:
-src/components/auth/ → alcance: "auth"
-src/pages/dashboard/ → alcance: "dashboard"  
-backend/api/users/ → alcance: "users-api"
-styles/theme/ → alcance: "theme"
-docs/setup/ → alcance: "docs"
+// Automatically detects scope based on:
+src/components/auth/ → scope: "auth"
+src/pages/dashboard/ → scope: "dashboard"  
+backend/api/users/ → scope: "users-api"
+styles/theme/ → scope: "theme"
+docs/setup/ → scope: "docs"
 ```
 
-### Análisis de Impacto
+### Impact Analysis
 
-- **Breaking Changes**: Cambios en APIs públicas, eliminación de functions
-- **Major**: Nuevas características importantes, refactors grandes
-- **Minor**: Nuevas características menores, mejoras
-- **Patch**: Bug fixes, documentación, style
+- **Breaking Changes**: Changes in public APIs, function removal
+- **Major**: Important new features, large refactors
+- **Minor**: Minor new features, improvements
+- **Patch**: Bug fixes, documentation, style
 
-## Configuración
+## Configuration
 
-El comando utiliza `.claude/auto-commit-config.json`:
+The command uses `.claude/auto-commit-config.json`:
 
 ```json
 {
@@ -119,13 +119,13 @@ El comando utiliza `.claude/auto-commit-config.json`:
     "maxFileChanges": 50
   },
   "templates": {
-    "feat": "{tipo}({alcance}): {descripcion}\\n\\n{detalles}\\n\\n{footer}",
-    "fix": "{tipo}({alcance}): {descripcion}\\n\\n{detalles}\\n\\n{footer}",
-    "docs": "{tipo}({alcance}): {descripcion}",
-    "style": "{tipo}: {descripcion}",
-    "refactor": "{tipo}({alcance}): {descripcion}\\n\\n{detalles}",
-    "test": "{tipo}({alcance}): {descripcion}",
-    "chore": "{tipo}: {descripcion}"
+    "feat": "{type}({scope}): {description}\\n\\n{details}\\n\\n{footer}",
+    "fix": "{type}({scope}): {description}\\n\\n{details}\\n\\n{footer}",
+    "docs": "{type}({scope}): {description}",
+    "style": "{type}: {description}",
+    "refactor": "{type}({scope}): {description}\\n\\n{details}",
+    "test": "{type}({scope}): {description}",
+    "chore": "{type}: {description}"
   },
   "scopes": {
     "autoDetect": true,
@@ -156,96 +156,96 @@ El comando utiliza `.claude/auto-commit-config.json`:
 }
 ```
 
-## Salida del Comando
+## Command Output
 
-### Análisis de Cambios
+### Change Analysis
 ```
 🤖 CLAUDE POWER - AUTO COMMIT ANALYSIS
 ======================================
 
-📊 CAMBIOS DETECTADOS:
+📊 DETECTED CHANGES:
 ┌─────────────────┬─────────┬─────────────┐
-│ Tipo            │ files│ Líneas      │
+│ Type            │ files│ Lines       │
 ├─────────────────┼─────────┼─────────────┤
-│ Modificados     │    8    │ +156 -42    │
-│ Nuevos          │    3    │ +203        │
-│ Eliminados      │    1    │ -67         │
-│ Renombrados     │    2    │ ~           │
+│ Modified        │    8    │ +156 -42    │
+│ New             │    3    │ +203        │
+│ Deleted         │    1    │ -67         │
+│ Renamed         │    2    │ ~           │
 └─────────────────┴─────────┴─────────────┘
 
-🔍 ANÁLISIS INTELIGENTE:
+🔍 INTELLIGENT ANALYSIS:
 📁 src/components/auth/
-  ✨ [FEAT] LoginForm.tsx - Nuevo componente de login
-  ✨ [FEAT] AuthContext.tsx - Context para autenticación
+  ✨ [FEAT] LoginForm.tsx - New login component
+  ✨ [FEAT] AuthContext.tsx - Auth context
   
 📁 src/pages/
-  🐛 [FIX] dashboard.tsx - Corregir error de navegación
+  🐛 [FIX] dashboard.tsx - Fix navigation error
   
 📁 docs/
-  📚 [DOCS] README.md - Actualizar guía de instalación
+  📚 [DOCS] README.md - Update installation guide
 
-🎯 TIPO DETECTADO: feat
-🏷️ ALCANCE SUGERIDO: auth
-⚡ IMPACTO: Minor (nueva funcionalidad)
+🎯 DETECTED TYPE: feat
+🏷️ SUGGESTED SCOPE: auth
+⚡ IMPACT: Minor (new functionality)
 ```
 
-### Mensaje Generado
+### Generated Message
 ```
-💬 MENSAJE DE COMMIT GENERADO:
+💬 GENERATED COMMIT MESSAGE:
 =====================================
 
-feat(auth): implementar sistema de autenticación con login social
+feat(auth): implement authentication system with social login
 
-- Agregar componente LoginForm con validación
-- Implementar AuthContext para gestión de estado
-- Corregir navegación en dashboard tras login
-- Actualizar documentación de setup
+- Add LoginForm component with validation
+- Implement AuthContext for state management
+- Fix navigation in dashboard after login
+- Update setup documentation
 
-Permite a los usuarios autenticarse usando:
-- Email/password tradicional  
-- Login con Google OAuth
-- Login con GitHub OAuth
+Allows users to authenticate using:
+- Traditional email/password  
+- Login with Google OAuth
+- Login with GitHub OAuth
 
-Breaking changes: Ninguno
+Breaking changes: None
 Closes: #123, #124
 ```
 
-### Validaciones Pre-commit
+### Pre-commit Validations
 ```
-🔍 VALIDACIONES PRE-COMMIT:
+🔍 PRE-COMMIT VALIDATIONS:
 ==========================
 
-✅ ESLint: 0 errores, 2 warnings
-✅ Prettier: Formato correcto
-✅ TypeScript: Compilación exitosa
-⚠️ Tests: 2 tests pendientes para nuevos componentes
-✅ Build: Generación exitosa
-✅ Tamaño files: Dentro de límites
+✅ ESLint: 0 errors, 2 warnings
+✅ Prettier: Correct format
+✅ TypeScript: Successful compilation
+⚠️ Tests: 2 pending tests for new components
+✅ Build: Successful generation
+✅ File size: Within limits
 
-🚦 RESULTADO: ✅ LISTO PARA COMMIT
+🚦 RESULT: ✅ READY TO COMMIT
 ```
 
-### Opciones Interactivas
+### Interactive Options
 ```
-📝 ¿PROCEDER CON EL COMMIT?
+📝 PROCEED WITH COMMIT?
 
-Mensaje propuesto:
-> feat(auth): implementar sistema de autenticación con login social
+Proposed message:
+> feat(auth): implement authentication system with social login
 
-Opciones:
-[Y] Sí, hacer commit
-[E] Editar mensaje
-[A] Agregar detalles
-[C] Cambiar tipo/alcance  
-[V] Ver diff completo
-[N] Cancelar
+Options:
+[Y] Yes, commit
+[E] Edit message
+[A] Add details
+[C] Change type/scope  
+[V] View full diff
+[N] Cancel
 
-Elección: 
+Choice: 
 ```
 
-## Integraciones Avanzadas
+## Advanced Integrations
 
-### Webhooks y Notificaciones
+### Webhooks and Notifications
 ```json
 {
   "integrations": {
@@ -268,66 +268,66 @@ Elección:
 }
 ```
 
-### Templates Personalizados
+### Custom Templates
 ```json
 {
   "customTemplates": {
-    "hotfix": "hotfix: {descripcion}\\n\\nUrgent fix for: {issue}\\n\\nTested: {testDetails}",
+    "hotfix": "hotfix: {description}\\n\\nUrgent fix for: {issue}\\n\\nTested: {testDetails}",
     "release": "release: version {version}\\n\\n{changelogSummary}\\n\\nBreaking Changes:\\n{breakingChanges}",
-    "security": "security: {descripcion}\\n\\n⚠️ Security fix\\n\\nCVE: {cve}\\nSeverity: {severity}"
+    "security": "security: {description}\\n\\n⚠️ Security fix\\n\\nCVE: {cve}\\nSeverity: {severity}"
   }
 }
 ```
 
-## Casos de Uso Especiales
+## Special Use Cases
 
-### Commits de Merge/Release
+### Merge/Release Commits
 ```bash
-# Auto-generar mensaje para merge
+# Auto-generate message for merge
 /auto-commit --type=merge --message="feat/user-dashboard into main"
 
-# Commit de release con changelog automático
+# Release commit with automatic changelog
 /auto-commit --type=release --message="v2.1.0" --changelog=true
 
-# Hotfix urgente
+# Urgent hotfix
 /auto-commit --type=hotfix --validate=minimal --priority=high
 ```
 
-### Múltiples Contextos
+### Multiple Contexts
 ```bash
-# Commit para feature específica
+# Commit for specific feature
 /auto-commit --scope=dashboard --context=feature/user-dashboard
 
-# Commit cross-platform
+# Cross-platform commit
 /auto-commit --platform=web,mobile --sync=true
 
-# Commit con dependencias
+# Commit with dependencies
 /auto-commit --dependencies=updated --security-check=true
 ```
 
-### Análisis Contextual IA
+### AI Contextual Analysis
 
 ```
-🧠 ANÁLISIS CONTEXTUAL IA:
+🧠 AI CONTEXTUAL ANALYSIS:
 =========================
 
-📈 Patterns DETECTADOS:
-• Este commit continúa el tralow en autenticación iniciado hace 3 commits
-• Se detecta patrón de desarrollo por componentes
-• Código sigue convenciones establecidas del proyecto
+📈 DETECTED PATTERNS:
+• This commit continues the work on authentication started 3 commits ago
+• Component-driven development pattern detected
+• Code follows established project conventions
 
-💡 SUGERENCIAS:
-• Considerar agregar tests para LoginForm.tsx
-• El cambio en AuthContext puede afectar otros componentes
-• Documentar los nuevos OAuth providers en wiki
+💡 SUGGESTIONS:
+• Consider adding tests for LoginForm.tsx
+• Change in AuthContext may affect other components
+• Document new OAuth providers in wiki
 
-🎯 CALIDAD DEL COMMIT:
-• Mensaje: 9/10 (claro y descriptivo)
-• Alcance: 10/10 (bien definido)
-• Impacto: 8/10 (cambio importante bien documentado)
+🎯 COMMIT QUALITY:
+• Message: 9/10 (clear and descriptive)
+• Scope: 10/10 (well defined)
+• Impact: 8/10 (important change well documented)
 ```
 
-## Automatización y CI/CD
+## Automation and CI/CD
 
 ### GitHub Actions
 ```yaml
@@ -374,15 +374,15 @@ jobs:
 #!/bin/sh
 # .git/hooks/prepare-commit-msg
 
-# Si no hay mensaje o es muy básico, generar uno automático
+# If no message or very basic, generate an automatic one
 if [ -z "$2" ] || [ "$2" = "message" ]; then
-  echo "🤖 Generando mensaje de commit inteligente..."
+  echo "🤖 Generating intelligent commit message..."
   AUTO_MSG=$(npx claude-power auto-commit --dry-run --format=conventional)
   echo "$AUTO_MSG" > "$1"
-  echo "✅ Mensaje generado. Edita si es necesario."
+  echo "✅ Message generated. Edit if necessary."
 fi
 ```
 
 ---
 
-*Parte del ecosistema **Claude Power** - Automatiza tu workflow con IA* 🚀 
+*Part of the **Claude Power** ecosystem - Automate your workflow with AI* 🚀 
