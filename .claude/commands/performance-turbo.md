@@ -1,21 +1,21 @@
 # Performance Turbo Command
 
-Optimización automática de rendimiento usando IA avanzada para alcanzar performance perfecta sin esfuerzo manual.
+Automatic performance optimization using advanced AI to achieve perfect performance without manual effort.
 
-## Descripción
+## Description
 
-El comando `/performance-turbo` lleva el rendimiento de tu aplicación al siguiente nivel:
+The `/performance-turbo` command takes your application's performance to the next level:
 
-- **Análisis automático** de bottlenecks y oportunidades de optimización
-- **Optimizaciones inteligentes** que preservan funcionalidad
-- **Bundle optimization** automática para web apps
-- **Database query optimization** para backend
-- **Memory management** y prevención de leaks
-- **Lazy loading** automático de recursos
-- **Caching strategies** optimizadas por IA
-- **Performance monitoring** integrado
-- **Web Vitals optimization** para SEO y UX
-- **Real-time suggestions** durante desarrollo
+- **Automatic analysis** of bottlenecks and optimization opportunities
+- **Intelligent optimizations** that preserve functionality
+- **Automatic bundle optimization** for web apps
+- **Database query optimization** for backend
+- **Memory management** and leak prevention
+- **Automatic lazy loading** of resources
+- **AI-optimized caching strategies**
+- **Integrated performance monitoring**
+- **Web Vitals optimization** for SEO and UX
+- **Real-time suggestions** during development
 
 ## Usage
 
@@ -23,16 +23,16 @@ El comando `/performance-turbo` lleva el rendimiento de tu aplicación al siguie
 /performance-turbo [directory] [--target] [--focus] [--budget] [--mode]
 ```
 
-### Parámetros
+### Parameters
 
-- `directory`: directory específico a optimizar
-- `--target`: Plataforma objetivo (web, mobile, desktop, ssr)
-- `--focus`: Área de foco (bundle, runtime, memory, network, database)
+- `directory`: specific directory to optimize
+- `--target`: Target platform (web, mobile, desktop, ssr)
+- `--focus`: Area of focus (bundle, runtime, memory, network, database)
 - `--budget`: Performance budget (strict, moderate, relaxed)
-- `--mode`: Modo de optimización (safe, aggressive, experimental)
-- `--preserve`: Preservar funcionalidad específica
-- `--metrics`: Métricas objetivo (lcp, fid, cls, ttfb)
-- `--baseline`: Comparar con baseline anterior
+- `--mode`: Optimization mode (safe, aggressive, experimental)
+- `--preserve`: Preserve specific functionality
+- `--metrics`: Target metrics (lcp, fid, cls, ttfb)
+- `--baseline`: Compare with previous baseline
 
 ### Examples
 
@@ -45,11 +45,11 @@ El comando `/performance-turbo` lleva el rendimiento de tu aplicación al siguie
 /performance-turbo api/ --focus=network --preserve=backward-compatibility
 ```
 
-## Optimizaciones Automáticas
+## Automatic Optimizations
 
 ### ⚡ Bundle Optimization
 ```javascript
-// ❌ ANTES - Bundle no optimizado
+// ❌ BEFORE - Unoptimized Bundle
 import { entireLibrary } from 'heavy-library';
 import './styles.css';
 import './unused-styles.css';
@@ -70,9 +70,9 @@ const MyComponent = () => {
   );
 };
 
-// ✅ DESPUÉS - Bundle optimizado automáticamente
-import { fetchData } from 'heavy-library/fetch-only'; // Tree-shaking aplicado
-import './styles.css'; // unused-styles.css removido automáticamente
+// ✅ AFTER - Automatically Optimized Bundle
+import { fetchData } from 'heavy-library/fetch-only'; // Tree-shaking applied
+import './styles.css'; // unused-styles.css automatically removed
 
 const MyComponent = () => {
   const [data, setData] = useState([]);
@@ -81,7 +81,7 @@ const MyComponent = () => {
     fetchData().then(setData);
   }, []);
   
-  // Virtualización agregada automáticamente para listas grandes
+  // Virtualization automatically added for large lists
   return (
     <VirtualizedList 
       items={data}
@@ -95,7 +95,7 @@ const MyComponent = () => {
   );
 };
 
-// Code splitting agregado automáticamente
+// Code splitting automatically added
 const HeavyComponent = lazy(() => 
   import('./HeavyComponent').then(module => ({
     default: module.HeavyComponent
@@ -105,13 +105,13 @@ const HeavyComponent = lazy(() =>
 
 ### 🧠 Memory Optimization
 ```javascript
-// ❌ ANTES - Memory inefficient
+// ❌ BEFORE - Memory inefficient
 const DataProcessor = ({ items }) => {
   const [processedData, setProcessedData] = useState([]);
   const [cache, setCache] = useState({});
   
   const processItems = useCallback(() => {
-    // Crea nuevos objetos en cada render
+    // Creates new objects on each render
     const processed = items.map(item => ({
       ...item,
       processed: heavyComputation(item),
@@ -129,9 +129,9 @@ const DataProcessor = ({ items }) => {
   );
 };
 
-// ✅ DESPUÉS - Memory optimizado automáticamente
+// ✅ AFTER - Automatically Optimized Memory
 const DataProcessor = ({ items }) => {
-  // Memoización inteligente agregada
+  // Intelligent memoization added
   const processedData = useMemo(() => {
     return items.map(item => ({
       ...item,
@@ -139,12 +139,12 @@ const DataProcessor = ({ items }) => {
     }));
   }, [items]);
   
-  // Cache LRU agregado automáticamente
+  // LRU cache automatically added
   const memoizedHeavyComputation = useMemo(() => 
     memoize(heavyComputation, { maxSize: 100 }), []
   );
   
-  // Virtualization para listas grandes
+  // Virtualization for large lists
   const virtualizedItems = useVirtualization(processedData, {
     itemHeight: 60,
     overscan: 5
@@ -161,7 +161,7 @@ const DataProcessor = ({ items }) => {
   );
 };
 
-// Componente memoizado automáticamente
+// Automatically memoized component
 const MemoizedItemComponent = memo(ItemComponent, (prev, next) => 
   prev.item.id === next.item.id && 
   prev.item.version === next.item.version
@@ -170,14 +170,14 @@ const MemoizedItemComponent = memo(ItemComponent, (prev, next) =>
 
 ### 🌐 Network Optimization
 ```javascript
-// ❌ ANTES - Network inefficient
+// ❌ BEFORE - Network inefficient
 const UserProfile = ({ userId }) => {
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
   
   useEffect(() => {
-    // Múltiples requests secuenciales
+    // Multiple sequential requests
     fetchUser(userId).then(setUser);
     fetchUserPosts(userId).then(setPosts);
     fetchUserComments(userId).then(setComments);
@@ -192,21 +192,21 @@ const UserProfile = ({ userId }) => {
   );
 };
 
-// ✅ DESPUÉS - Network optimizado automáticamente
+// ✅ AFTER - Automatically Optimized Network
 const UserProfile = ({ userId }) => {
-  // GraphQL agregado automáticamente para single request
+  // GraphQL automatically added for single request
   const { data, loading, error } = useQuery(GET_USER_PROFILE, {
     variables: { userId },
-    // Cache optimizado automáticamente
+    // Automatically optimized cache
     fetchPolicy: 'cache-first',
-    // Prefetch relacionado
+    // Related prefetch
     onCompleted: (data) => {
       // Prefetch user connections
       prefetchUserConnections(data.user.id);
     }
   });
   
-  // Loading states optimizados
+  // Optimized loading states
   if (loading) return <UserProfileSkeleton />;
   if (error) return <ErrorBoundary error={error} />;
   
@@ -215,7 +215,7 @@ const UserProfile = ({ userId }) => {
   return (
     <div>
       <UserInfo user={user} />
-      {/* Lazy loading agregado automáticamente */}
+      {/* Lazy loading automatically added */}
       <Suspense fallback={<PostsSkeleton />}>
         <LazyUserPosts posts={posts} />
       </Suspense>
@@ -226,11 +226,11 @@ const UserProfile = ({ userId }) => {
   );
 };
 
-// Service Worker agregado para caching
+// Service Worker added for caching
 const cacheStrategy = new CacheFirst({
   cacheName: 'user-profiles',
   plugins: [{
-    // Cache invalidation inteligente
+    // Intelligent cache invalidation
     cacheWillUpdate: async ({ response }) => 
       response.status === 200 && response.headers.get('content-type')?.includes('application/json')
   }]
@@ -239,7 +239,7 @@ const cacheStrategy = new CacheFirst({
 
 ### 🗄️ Database Optimization
 ```javascript
-// ❌ ANTES - Database inefficient
+// ❌ BEFORE - Database inefficient
 const getUsersWithPosts = async () => {
   const users = await User.findAll(); // N+1 query problem
   
@@ -253,21 +253,21 @@ const getUsersWithPosts = async () => {
   return usersWithPosts;
 };
 
-// ✅ DESPUÉS - Database optimizado automáticamente
+// ✅ AFTER - Automatically Optimized Database
 const getUsersWithPosts = async () => {
-  // Eager loading agregado automáticamente
+  // Eager loading automatically added
   const users = await User.findAll({
     include: [{
       model: Post,
-      // Límite agregado para evitar over-fetching
+      // Limit added to prevent over-fetching
       limit: 10,
       order: [['createdAt', 'DESC']],
-      // Selección de campos optimizada
+      // Optimized field selection
       attributes: ['id', 'title', 'summary', 'createdAt']
     }],
-    // Índices sugeridos automáticamente
+    // Automatically suggested indexes
     attributes: ['id', 'name', 'email', 'avatarUrl'],
-    // Paginación agregada automáticamente
+    // Automatically added pagination
     limit: 50,
     offset: 0
   });
@@ -275,7 +275,7 @@ const getUsersWithPosts = async () => {
   return users;
 };
 
-// Índices automáticamente sugeridos
+// Automatically suggested indexes
 /*
 CREATE INDEX CONCURRENTLY idx_posts_user_created 
 ON posts (user_id, created_at DESC) 
@@ -286,7 +286,7 @@ ON users (id, name, email)
 WHERE active = true;
 */
 
-// Cache layer agregado automáticamente
+// Automatically added cache layer
 const getCachedUsersWithPosts = async () => {
   const cacheKey = 'users_with_posts_v1';
   
@@ -302,11 +302,11 @@ const getCachedUsersWithPosts = async () => {
 
 ### 🎨 Rendering Optimization
 ```javascript
-// ❌ ANTES - Rendering inefficient
+// ❌ BEFORE - Rendering inefficient
 const Dashboard = ({ filters, sortBy, searchTerm }) => {
   const [data, setData] = useState([]);
   
-  // Re-render en cada prop change
+  // Re-render on every prop change
   const filteredData = data
     .filter(item => item.category === filters.category)
     .filter(item => item.name.includes(searchTerm))
@@ -325,11 +325,11 @@ const Dashboard = ({ filters, sortBy, searchTerm }) => {
   );
 };
 
-// ✅ DESPUÉS - Rendering optimizado automáticamente
+// ✅ AFTER - Automatically Optimized Rendering
 const Dashboard = ({ filters, sortBy, searchTerm }) => {
   const [data, setData] = useState([]);
   
-  // Memoización de computaciones costosas
+  // Memoization of expensive computations
   const filteredData = useMemo(() => {
     return data
       .filter(item => item.category === filters.category)
@@ -341,12 +341,12 @@ const Dashboard = ({ filters, sortBy, searchTerm }) => {
       });
   }, [data, filters.category, searchTerm, sortBy]);
   
-  // Callback memoizado
+  // Memoized callback
   const handleUpdate = useCallback((itemId) => {
     updateItem(itemId);
   }, []);
   
-  // Virtualization para listas grandes
+  // Virtualization for large lists
   const rowRenderer = useCallback(({ index, key, style }) => (
     <div key={key} style={style}>
       <MemoizedItemCard 
@@ -373,7 +373,7 @@ const Dashboard = ({ filters, sortBy, searchTerm }) => {
   );
 };
 
-// Componente memoizado con shallow comparison inteligente
+// Memoized component with intelligent shallow comparison
 const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
   return (
     prevProps.item.id === nextProps.item.id &&
@@ -382,7 +382,7 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 });
 ```
 
-## Configuración
+## Configuration
 
 `.claude/performance-turbo-config.json`:
 
@@ -482,16 +482,16 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 }
 ```
 
-## Salida del Comando
+## Command Output
 
-### Análisis de Performance
+### Performance Analysis
 ```
 ⚡ CLAUDE POWER - PERFORMANCE TURBO ANALYSIS
 ===========================================
 
 📊 PERFORMANCE BASELINE:
 ┌─────────────────────────┬─────────┬─────────┬─────────┐
-│ Métrica                 │ Actual  │ Target  │ Status  │
+│ Metric                  │ Actual  │ Target  │ Status  │
 ├─────────────────────────┼─────────┼─────────┼─────────┤
 │ Bundle Size             │ 847KB   │ 250KB   │ ❌ 238% │
 │ First Contentful Paint  │ 3.2s    │ 1.5s    │ ❌ 213% │
@@ -501,14 +501,14 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 │ Total Blocking Time     │ 520ms   │ 200ms   │ ❌ 260% │
 └─────────────────────────┴─────────┴─────────┴─────────┘
 
-🔍 BOTTLENECKS IDENTIFICADOS:
-• Large JavaScript bundles (40% del problema)
-• Unoptimized images (25% del problema)
-• Excessive re-renders (20% del problema)  
-• Inefficient database queries (10% del problema)
-• Poor caching strategy (5% del problema)
+🔍 IDENTIFIED BOTTLENECKS:
+• Large JavaScript bundles (40% of the problem)
+• Unoptimized images (25% of the problem)
+• Excessive re-renders (20% of the problem)  
+• Inefficient database queries (10% of the problem)
+• Poor caching strategy (5% of the problem)
 
-🎯 OPORTUNIDADES DE OPTIMIZACIÓN:
+🎯 OPTIMIZATION OPPORTUNITIES:
 • Bundle splitting: -65% bundle size potential
 • Image optimization: -40% load time potential
 • Code memoization: -50% re-renders potential
@@ -516,60 +516,60 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 • Cache implementation: -80% repeat load time potential
 ```
 
-### Optimizaciones Aplicadas
+### Applied Optimizations
 ```
-⚡ OPTIMIZACIONES APLICADAS AUTOMÁTICAMENTE:
+⚡ AUTOMATICALLY APPLIED OPTIMIZATIONS:
 ==========================================
 
 📦 BUNDLE OPTIMIZATION:
-✅ Tree-shaking aplicado a 23 librerías
-✅ Code splitting en 15 rutas principales
-✅ Dynamic imports para 8 componentes pesados
-✅ Dead code elimination: 234KB removidos
-✅ Minification y compression: -45% size
+✅ Tree-shaking applied to 23 libraries
+✅ Code splitting in 15 main routes
+✅ Dynamic imports for 8 heavy components
+✅ Dead code elimination: 234KB removed
+✅ Minification and compression: -45% size
 
-📊 RESULTADOS BUNDLE:
-• Antes: 847KB → Después: 287KB (-66%)
-• Chunks generados: 12 (vs 1 monolítico)
-• Load time inicial: 3.2s → 1.4s (-56%)
+📊 BUNDLE RESULTS:
+• Before: 847KB → After: 287KB (-66%)
+• Chunks generated: 12 (vs 1 monolithic)
+• Initial load time: 3.2s → 1.4s (-56%)
 
 🧠 MEMORY OPTIMIZATION:
-✅ Memoization agregada a 34 componentes
-✅ Virtualization en 6 listas largas
-✅ Memory leak fixes en 8 componentes
-✅ Cache LRU implementado en 12 functions
+✅ Memoization added to 34 components
+✅ Virtualization in 6 long lists
+✅ Memory leak fixes in 8 components
+✅ LRU cache implemented in 12 functions
 
-📊 RESULTADOS MEMORY:
-• Memory usage: -42% promedium
+📊 MEMORY RESULTS:
+• Memory usage: -42% average
 • GC frequency: -35% collections
 • Retained size: -50% improvement
 
 🌐 NETWORK OPTIMIZATION:
-✅ Request batching en 15 endpoints
-✅ GraphQL agregado para eliminar over-fetching
-✅ Service Worker cache strategy implementada
-✅ Image lazy loading en 45 componentes
-✅ Resource prefetching inteligente
+✅ Request batching in 15 endpoints
+✅ GraphQL added to eliminate over-fetching
+✅ Service Worker cache strategy implemented
+✅ Image lazy loading in 45 components
+✅ Intelligent resource prefetching
 
-📊 RESULTADOS NETWORK:
+📊 NETWORK RESULTS:
 • Network requests: -60% reduction
 • Cache hit rate: 85% improvement
 • Image load time: -70% improvement
 
 🗄️ DATABASE OPTIMIZATION:
-✅ 12 queries optimizadas con eager loading
-✅ 8 índices sugeridos e implementados
-✅ Connection pooling configurado
-✅ Redis cache layer agregado
+✅ 12 queries optimized with eager loading
+✅ 8 indexes suggested and implemented
+✅ Connection pooling configured
+✅ Redis cache layer added
 
-📊 RESULTADOS DATABASE:
-• Query time: -75% promedium
+📊 DATABASE RESULTS:
+• Query time: -75% average
 • Database connections: -50% usage
 • Cache hit rate: 92% on frequent queries
 
-📈 PERFORMANCE FINAL:
+📈 FINAL PERFORMANCE:
 ┌─────────────────────────┬─────────┬─────────┬─────────┐
-│ Métrica                 │ Antes   │ Después │ Mejora  │
+│ Metric                  │ Before  │ After   │ Improvement │
 ├─────────────────────────┼─────────┼─────────┼─────────┤
 │ Bundle Size             │ 847KB   │ 287KB   │ ✅ -66% │
 │ First Contentful Paint  │ 3.2s    │ 1.4s    │ ✅ -56% │
@@ -584,7 +584,7 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 • Accessibility: 87 → 95 (+9%)
 • Best Practices: 78 → 96 (+23%)
 • SEO: 92 → 98 (+7%)
-• PWA: N/A → 85 (Nuevo)
+• PWA: N/A → 85 (New)
 
 💰 BUSINESS IMPACT:
 • Page load speed: +156% improvement
@@ -596,16 +596,16 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 
 ### Monitoring Setup
 ```
-📊 PERFORMANCE MONITORING CONFIGURADO:
+📊 PERFORMANCE MONITORING CONFIGURED:
 =====================================
 
 📈 REAL-TIME METRICS:
-• Web Vitals tracking habilitado
-• Custom performance marks agregados
-• User experience monitoring activado
-• Error tracking con performance context
+• Web Vitals tracking enabled
+• Custom performance marks added
+• User experience monitoring activated
+• Error tracking with performance context
 
-🎯 ALERTAS CONFIGURADAS:
+🎯 ALERTS CONFIGURED:
 • LCP > 2.5s (Critical)
 • FID > 100ms (Warning)  
 • CLS > 0.1 (Warning)
@@ -613,19 +613,19 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 • Memory usage > 100MB (Critical)
 
 📊 DASHBOARDS:
-• Performance dashboard en Grafana
-• Real-time monitoring en DataDog
+• Performance dashboard in Grafana
+• Real-time monitoring in DataDog
 • Weekly performance reports
-• Regression detection automática
+• Automatic regression detection
 
-🔔 NOTIFICACIONES:
-• Slack alerts para regressions
-• Email reports semanales
+🔔 NOTIFICATIONS:
+• Slack alerts for regressions
+• Weekly email reports
 • GitHub PR performance comments
 • Automated performance budgets
 ```
 
-## Integración Avanzada
+## Advanced Integration
 
 ### GitHub Actions
 ```yaml
@@ -674,7 +674,7 @@ jobs:
       - name: Comment PR with results
         uses: actions/github-script@v6
         with:
-          script: |
+          script: |\
             const fs = require('fs');
             const results = JSON.parse(fs.readFileSync('performance-results.json'));
             
@@ -703,4 +703,4 @@ jobs:
 
 ---
 
-*Parte del ecosistema **Claude Power** - Performance perfecta automáticamente* ⚡🚀 
+*Part of the **Claude Power** ecosystem - Perfect performance automatically* ⚡🚀 
