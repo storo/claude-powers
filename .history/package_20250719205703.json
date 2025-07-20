@@ -1,7 +1,7 @@
 {
   "name": "@claude-powers/slash-commands",
   "version": "1.0.0",
-  "description": "🚀 Claude Powers - Essential slash commands for Claude Code",
+  "description": "🚀 Claude Powers - Comandos slash esenciales para Claude Code",
   "main": "index.js",
   "bin": {
     "claude-powers": "./index.js"

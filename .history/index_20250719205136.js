@@ -39,31 +39,31 @@ function showHelp() {
   console.log(`
 🚀 Claude Powers - Slash Commands v1.0.0
 
-AVAILABLE COMMANDS:
-  install           Install slash commands in current project
-  version           Show package version
-  help              Show this help
+COMANDOS DISPONIBLES:
+  install           Instalar comandos slash en el proyecto actual
+  version           Mostrar versión del package
+  help              Mostrar esta ayuda
 
-EXAMPLES:
+EJEMPLOS:
   npx @claude-powers/slash-commands install
   npx claude-powers install-commands
 
-AVAILABLE SLASH COMMANDS:
+COMANDOS SLASH DISPONIBLES:
 
-🔥 Main Commands:
-  /generate-tests    Automatic tests with 90%+ coverage
-  /fix-bugs         Auto bug fixing (90% reduction)
-  /performance-turbo Automatic optimization (60%+ improvement)
-  /security-fortress Impenetrable security fortress
-  /explain-code     Personal code teacher
+🔥 Comandos Principales:
+  /generate-tests    Tests automáticos con 90%+ cobertura
+  /fix-bugs         Auto-reparación de bugs (90% reducción)
+  /performance-turbo Optimización automática (60%+ mejora)
+  /security-fortress Fortaleza de seguridad impenetrable
+  /explain-code     Profesor personal de código
 
-🛠️ Base Commands:
-  /find-bugs        Find bugs in code
-  /find-unused-code Find unused code
-  /auto-commit      Automatic commits with AI
-  /create-pr        Intelligent pull requests
-  /code-review      Automatic code review
-    `);
+🛠️ Comandos Base:
+  /find-bugs        Buscar bugs en el código
+  /find-unused-code Encontrar código sin uso
+  /auto-commit      Commits automáticos con IA
+  /create-pr        Pull requests inteligentes
+  /code-review      Revisión automática de código
+  `);
 }
 
 // Ejecutar si se llama directamente

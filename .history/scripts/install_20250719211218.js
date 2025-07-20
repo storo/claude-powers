@@ -120,21 +120,21 @@ function checkClaudeAvailability() {
 }
 
 /**
- * Shows help information
+ * Muestra información de ayuda
  */
 function showHelp() {
   console.log(`
-🚀 Claude Powers - Slash Commands Installer
+🚀 Claude Powers - Instalador de Comandos Slash
 
-USAGE:
-  node scripts/install.js [options]
+USO:
+  node scripts/install.js [opciones]
 
-OPTIONS:
-  --help, -h     Show this help
-  --force, -f    Force reinstallation
-  --dry-run      Show what would be done without executing
+OPCIONES:
+  --help, -h     Mostrar esta ayuda
+  --force, -f    Forzar reinstalación
+  --dry-run      Mostrar qué se haría sin ejecutar
 
-EXAMPLES:
+EJEMPLOS:
   node scripts/install.js
   npm run install-commands
   npx claude-powers install-commands
@@ -150,19 +150,19 @@ if (args.includes('--help') || args.includes('-h')) {
 }
 
 if (args.includes('--dry-run')) {
-  console.log('🔍 DRY RUN - Showing what would be done:');
-  console.log('  - Create .claude/ directory');
-  console.log('  - Create .claude/commands/ directory');
-  console.log('  - Copy find-bugs.md command');
-  console.log('  - Copy find-unused-code.md command');
-  console.log('  - Copy auto-commit.md command');
-  console.log('  - Copy create-pr.md command');
-  console.log('  - Copy code-review.md command');
-  console.log('  - Copy find-bugs-config.json configuration');
-  console.log('  - Copy find-unused-code-config.json configuration');
-  console.log('  - Copy auto-commit-config.json configuration');
-  console.log('  - Copy create-pr-config.json configuration');
-  console.log('  - Copy code-review-config.json configuration');
+  console.log('🔍 DRY RUN - Mostrando qué se haría:');
+  console.log('  - Crear directorio .claude/');
+  console.log('  - Crear directorio .claude/commands/');
+  console.log('  - Copiar comando find-bugs.md');
+  console.log('  - Copiar comando find-unused-code.md');
+  console.log('  - Copiar comando auto-commit.md');
+  console.log('  - Copiar comando create-pr.md');
+  console.log('  - Copiar comando code-review.md');
+  console.log('  - Copiar configuración find-bugs-config.json');
+  console.log('  - Copiar configuración find-unused-code-config.json');
+  console.log('  - Copiar configuración auto-commit-config.json');
+  console.log('  - Copiar configuración create-pr-config.json');
+  console.log('  - Copiar configuración code-review-config.json');
   process.exit(0);
 }
 
