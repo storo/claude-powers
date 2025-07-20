@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Claude Powers - Slash Commands
+ * Claude Power - Slash Commands
  * Entry point for the package
  */
 
@@ -37,7 +37,7 @@ function main() {
 
 function showHelp() {
   console.log(`
-🚀 Claude Powers - Slash Commands v1.0.0
+🚀 Claude Power - Slash Commands v1.0.0
 
 COMANDOS DISPONIBLES:
   install           Instalar comandos slash en el proyecto actual
@@ -45,12 +45,15 @@ COMANDOS DISPONIBLES:
   help              Mostrar esta ayuda
 
 EJEMPLOS:
-  npx @claude-powers/slash-commands install
-  npx claude-powers install-commands
+  npx @claude-power/slash-commands install
+  npx claude-power install-commands
+  
+DOCUMENTACIÓN:
+  https://github.com/claude-power/slash-commands
 
 COMANDOS SLASH DISPONIBLES:
 
-🔥 Comandos Principales:
+🔥 Super Poderes:
   /generate-tests    Tests automáticos con 90%+ cobertura
   /fix-bugs         Auto-reparación de bugs (90% reducción)
   /performance-turbo Optimización automática (60%+ mejora)
@@ -63,6 +66,8 @@ COMANDOS SLASH DISPONIBLES:
   /auto-commit      Commits automáticos con IA
   /create-pr        Pull requests inteligentes
   /code-review      Revisión automática de código
+  
+🎯 Para más información, visita: docs/README.md
   `);
 }
 

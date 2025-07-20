@@ -32,16 +32,20 @@
     "code-explanation",
     "developer-productivity"
   ],
-  "author": "storo",
+  "author": {
+    "name": "Claude Power Team",
+    "email": "team@claude-power.dev",
+    "url": "https://claude-power.dev"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/claude-powers/slash-commands"
+    "url": "https://github.com/claude-power/slash-commands"
   },
   "bugs": {
-    "url": "https://github.com/claude-powers/slash-commands/issues"
+    "url": "https://github.com/claude-power/slash-commands/issues"
   },
-  "homepage": "https://github.com/claude-powers/slash-commands",
+  "homepage": "https://claude-power.dev",
   "files": [
     ".claude/",
     "docs/", 

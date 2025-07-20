@@ -32,7 +32,11 @@
     "code-explanation",
     "developer-productivity"
   ],
-  "author": "storo",
+  "author": {
+    "name": "Claude Power Team",
+    "email": "team@claude-power.dev",
+    "url": "https://claude-power.dev"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

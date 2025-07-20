@@ -82,13 +82,13 @@ function installCommands() {
     console.log('  /auto-commit - Commits automáticos con IA');
     console.log('  /create-pr - Pull requests inteligentes');
     console.log('  /code-review - Revisión automática de código');
-    console.log('\n💡 Ejemplos de uso:');
+    console.log('\n💡 Ejemplos de Super Poderes:');
     console.log('  /generate-tests src/components/UserProfile.tsx --coverage=95%');
     console.log('  /fix-bugs --tipos=memory-leaks,null-pointers --confidence=high');
     console.log('  /performance-turbo --target=web --budget=strict');
     console.log('  /security-fortress --compliance=gdpr,owasp --harden=paranoid');
     console.log('  /explain-code src/algorithm.js --nivel=beginner --diagrama=flowchart');
-    console.log('\n💡 Comandos adicionales:');
+    console.log('\n💡 Uso comandos base:');
     console.log('  /find-bugs src/ --tipos=react --severidad=alto');
     console.log('  /auto-commit --interactive');
     console.log('  /create-pr --tipo=feature --reviewers=@team');
