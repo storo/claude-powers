@@ -92,7 +92,7 @@ function installCommands() {
     console.log('  /find-bugs src/ --tipos=react --severidad=alto');
     console.log('  /auto-commit --interactive');
     console.log('  /create-pr --tipo=feature --reviewers=@team');
-    console.log('\n📖 Documentación completa: docs/README.md');
+
     
   } catch (error) {
     console.error('❌ Error durante la instalación:', error.message);
