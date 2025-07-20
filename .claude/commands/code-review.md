@@ -1,33 +1,33 @@
 # Code Review Command
 
-Realiza revisiones automáticas y exhaustivas de código usando análisis IA avanzado para mejorar calidad, seguridad y mantenibilidad.
+Performs automatic and comprehensive code reviews using advanced AI analysis to improve quality, security, and maintainability.
 
-## Descripción
+## Description
 
-El comando `/code-review` proporciona una revisión completa y profesional del código utilizando IA avanzada para analizar:
+The `/code-review` command provides complete and professional code review using advanced AI to analyze:
 
-- **Calidad del código** - Complejidad, legibilidad, mantenibilidad
-- **Arquitectura y patrones** - Diseño, organización, estructura
-- **Performance y optimización** - Bottlenecks, mejoras de rendimiento
-- **Seguridad** - Vulnerabilidades, buenas prácticas de seguridad
-- **Testing** - Cobertura, calidad de tests, casos faltantes
-- **Documentación** - Comentarios, JSDoc, claridad
-- **Mejores prácticas** - Convenciones, estándares de la industria
-- **Sugerencias de refactoring** - Mejoras específicas y actionables
+- **Code quality** - Complexity, readability, maintainability
+- **Architecture and patterns** - Design, organization, structure
+- **Performance and optimization** - Bottlenecks, performance improvements
+- **Security** - Vulnerabilities, security best practices
+- **Testing** - Coverage, test quality, missing cases
+- **Documentation** - Comments, JSDoc, clarity
+- **Best practices** - Conventions, industry standards
+- **Refactoring suggestions** - Specific and actionable improvements
 
 ## Usage
 
 ```
-/code-review [directory] [--aspectos] [--severity] [--format] [--profundidad]
+/code-review [directory] [--aspects] [--severity] [--format] [--depth]
 ```
 
 ### Parámetros
 
 - `directory` (opcional): directory específico a revisar. Por defecto analiza todo el proyecto.
-- `--aspectos`: Aspectos específicos a revisar (calidad, arquitectura, performance, seguridad, testing, docs)
-- `--severity`: Nivel de crítica (estricto, moderado, relajado)
+- `--aspects`: Aspectos específicos a revisar (calidad, arquitectura, performance, seguridad, testing, docs)
+- `--severity`: Nivel de crítica (strict, moderate, relaxed)
 - `--format`: Formato de salida (detailed, summary, actionable, report)
-- `--profundidad`: Nivel de análisis (surface, deep, comprehensive)
+- `--depth`: Nivel de análisis (surface, deep, comprehensive)
 - `--contexto`: Contexto del proyecto (startup, enterprise, legacy, greenfield)
 - `--tech-stack`: Stack tecnológico (react, vue, node, python, etc.)
 - `--focus`: Foco específico (maintainability, scalability, performance, security)
@@ -36,11 +36,11 @@ El comando `/code-review` proporciona una revisión completa y profesional del c
 
 ```
 /code-review
-/code-review src/ --aspectos=calidad,performance --severity=estricto
-/code-review components/ --aspectos=arquitectura --tech-stack=react
-/code-review --format=actionable --profundidad=comprehensive
+/code-review src/ --aspects=calidad,performance --severity=strict
+/code-review components/ --aspects=arquitectura --tech-stack=react
+/code-review --format=actionable --depth=comprehensive
 /code-review backend/ --focus=security,performance --contexto=enterprise
-/code-review src/utils/ --aspectos=testing --format=report
+/code-review src/utils/ --aspects=testing --format=report
 ```
 
 ## Aspectos de Análisis
@@ -50,7 +50,7 @@ El comando `/code-review` proporciona una revisión completa y profesional del c
 #### Complejidad y Legibilidad
 - Complejidad ciclomática por función
 - Profundidad de anidamiento
-- Longitud de funciones y clases
+- Longitud de functions y clases
 - Claridad en naming conventions
 - Coherencia en el estilo de código
 
@@ -137,7 +137,7 @@ El comando utiliza `.claude/code-review-config.json`:
 
 ```json
 {
-  "severity": "moderado",
+  "severity": "moderate",
   "aspects": {
     "quality": {
       "enabled": true,
@@ -204,7 +204,7 @@ El comando utiliza `.claude/code-review-config.json`:
 =====================================
 
 📊 PUNTUACIÓN GENERAL: 8.2/10 (BUENO)
-⏱️ Análisis completado en 45.3s - 127 archivos revisados
+⏱️ Análisis completado en 45.3s - 127 files revisados
 
 🎯 ASPECTOS EVALUADOS:
 ┌─────────────────┬───────┬─────────┬─────────────┐
@@ -228,23 +228,23 @@ El comando utiliza `.claude/code-review-config.json`:
 ==============================
 
 ✅ FORTALEZAS:
-• Funciones bien dimensionadas (promedium: 28 líneas)
+• functions bien dimensionadas (promedium: 28 líneas)
 • Naming conventions consistentes
 • low acoplamiento entre módulos
 • DRY principles bien aplicados
 
 ⚠️ ÁREAS DE MEJORA:
-• 3 funciones con alta complejidad ciclomática (>10)
+• 3 functions con alta complejidad ciclomática (>10)
 • Algunos méall anidados profundamente (>4 niveles)
 • Inconsistencias menores en formateo
 
-📁 ARCHIVOS CON ISSUES:
+📁 files CON ISSUES:
 src/utils/dataProcessor.js (Línea 45-67)
   🔴 CRÍTICO: Función processComplexData() demasiado compleja (CC: 15)
-  💡 SUGERENCIA: Extraer sub-funciones para validateData(), transformData(), formatResult()
+  💡 SUGERENCIA: Extraer sub-functions para validateData(), transformData(), formatResult()
 
 src/components/Dashboard.tsx (Línea 120-145)
-  🟡 MODERADO: Anidamiento profundo en renderWidgets()
+  🟡 moderate: Anidamiento profundo en renderWidgets()
   💡 SUGERENCIA: Usar early returns o component extraction
 
 🏛️ ARQUITECTURA Y PATRONES (7.8/10)
@@ -395,7 +395,7 @@ src/services/PaymentService.js
 # .git/hooks/pre-commit
 
 echo "🔍 Running code review analysis..."
-REVIEW_RESULT=$(npx claude-power code-review --format=summary --aspectos=security,quality)
+REVIEW_RESULT=$(npx claude-power code-review --format=summary --aspects=security,quality)
 
 if echo "$REVIEW_RESULT" | grep -q "CRÍTICO"; then
   echo "❌ Critical issues found. Please fix before committing:"
@@ -429,7 +429,7 @@ jobs:
         run: |
           npx claude-power code-review \
             --format=report \
-            --profundidad=comprehensive \
+            --depth=comprehensive \
             --output=json > review-report.json
             
       - name: Comment PR with review
@@ -487,7 +487,7 @@ jobs:
       "args": [
         "claude-power",
         "code-review",
-        "--profundidad=comprehensive",
+        "--depth=comprehensive",
         "--format=detailed"
       ],
       "group": "build"

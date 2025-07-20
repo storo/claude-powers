@@ -415,7 +415,7 @@ src/components/UserProfile.tsx (127 líneas)
 📝 TESTS GENERADOS EXITOSAMENTE:
 ===============================
 
-📁 Archivos creados:
+📁 files creados:
 • src/components/__tests__/UserProfile.test.tsx (312 líneas)
 • src/components/__tests__/UserProfile.integration.test.tsx (156 líneas)
 • e2e/user-profile.spec.ts (89 líneas)

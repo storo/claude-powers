@@ -1,44 +1,44 @@
 # Find Unused Code Command
 
-Detecta código, variables, funciones, imports y archivos que no se utilizan en el proyecto.
+Detects code, variables, functions, imports, and files that are not used in the project.
 
-## Descripción
+## Description
 
-El comando `/find-unused-code` realiza un análisis profundo del proyecto para identificar:
+The `/find-unused-code` command performs deep project analysis to identify:
 
-- Variables declaradas pero no utilizadas
-- Funciones definidas pero nunca llamadas
-- Imports que no se referencian en el código
-- Exports sin referencias externas
-- Componentes React no utilizados
-- Archivos completamente sin referencias
-- CSS classes y estilos no aplicados
-- Dependencias de package.json no utilizadas
-- Propiedades de objetos no accedidas
-- Parámetros de función no utilizados
+- Variables declared but not used
+- Functions defined but never called
+- Imports not referenced in code
+- Exports without external references
+- Unused React components
+- Files completely without references
+- CSS classes and styles not applied
+- Unused package.json dependencies
+- Object properties not accessed
+- Function parameters not used
 
 ## Usage
 
 ```
-/find-unused-code [directory] [--types] [--severity] [--incluir]
+/find-unused-code [directory] [--types] [--severity] [--include]
 ```
 
 ### Parámetros
 
 - `directory` (opcional): directory específico a analizar. Por defecto analiza todo el proyecto.
-- `--types`: Tipos específicos a buscar (variables, funciones, imports, exports, archivos, css, deps)
+- `--types`: Tipos específicos a buscar (variables, functions, imports, exports, files, css, deps)
 - `--severity`: Nivel de impacto (high, medium, low, all)
-- `--incluir`: Incluir categorías específicas (test-files, node-modules, config-files)
-- `--exclude-patterns`: Patrones de archivos a excluir
+- `--include`: Incluir categorías específicas (test-files, node-modules, config-files)
+- `--exclude-patterns`: Patrones de files a excluir
 - `--min-size`: Tamaño mínimo de código para considerar (en líneas)
 
 ### Examples
 
 ```
 /find-unused-code
-/find-unused-code src/ --types=variables,funciones
+/find-unused-code src/ --types=variables,functions
 /find-unused-code --types=imports --severity=high
-/find-unused-code components/ --types=react --incluir=test-files
+/find-unused-code components/ --types=react --include=test-files
 /find-unused-code --types=deps --severity=high
 /find-unused-code styles/ --types=css
 ```
@@ -51,8 +51,8 @@ El comando `/find-unused-code` realiza un análisis profundo del proyecto para i
 - Loop variables no usadas
 - Parameters de función no utilizados
 
-### Funciones No Utilizadas
-- Funciones declaradas pero nunca llamadas
+### functions No Utilizadas
+- functions declaradas pero nunca llamadas
 - Arrow functions sin referencias
 - Méall de clase no invocados
 - Callbacks no utilizados
@@ -70,11 +70,11 @@ El comando `/find-unused-code` realiza un análisis profundo del proyecto para i
 - Contexts no utilizados
 - Higher-Order Components sin referencias
 
-### Archivos Sin Referencias
-- Archivos TypeScript/JavaScript no importados
+### files Sin Referencias
+- files TypeScript/JavaScript no importados
 - Componentes no utilizados en ningún lugar
 - Utilities sin referencias
-- Archivos de configuración obsoletos
+- files de configuración obsoletos
 
 ### CSS/Estilos
 - Classes CSS no aplicadas en JSX/HTML
@@ -157,9 +157,9 @@ El comando utiliza `.claude/find-unused-code-config.json`:
 │ Categoría       │ Count │ Tamaño  │
 ├─────────────────┼───────┼─────────┤
 │ Variables       │  15   │ 45 LOC  │
-│ Funciones       │   8   │ 120 LOC │
+│ functions       │   8   │ 120 LOC │
 │ Imports         │  23   │ 23 LOC  │
-│ Archivos        │   5   │ 340 LOC │
+│ files        │   5   │ 340 LOC │
 │ CSS Classes     │  12   │ 60 LOC  │
 │ Dependencies    │   3   │ N/A     │
 │ Total           │  66   │ 588 LOC │
@@ -167,7 +167,7 @@ El comando utiliza `.claude/find-unused-code-config.json`:
 
 💾 IMPACTO POTENCIAL:
 • Reducción de bundle: ~45KB
-• Archivos eliminables: 5
+• files eliminables: 5
 • Limpieza estimada: 588 líneas
 ```
 
@@ -199,7 +199,7 @@ El comando utiliza `.claude/find-unused-code-config.json`:
   💡 [medium] Línea 5: import lodash from 'lodash'
      > Librería importada sin uso
 
-🔍 ARCHIVOS SIN REFERENCIAS (5):
+🔍 files SIN REFERENCIAS (5):
 
 📁 src/components/OldButton.tsx (68 líneas)
   ❌ [high] Archivo completo sin imports ni referencias
@@ -241,9 +241,9 @@ El comando utiliza `.claude/find-unused-code-config.json`:
 • Limpiar 12 CSS rules sin uso
 
 🟡 REVISAR MANUALMENTE:
-• 5 archivos sin referencias (verificar si son entry points)
+• 5 files sin referencias (verificar si son entry points)
 • 3 dependencias no utilizadas (verificar uso en build/config)
-• 8 funciones sin llamadas directas (pueden ser exports públicos)
+• 8 functions sin llamadas directas (pueden ser exports públicos)
 
 🔴 REQUIERE ATENCIÓN:
 • src/components/OldButton.tsx - Posible feature legacy
@@ -251,7 +251,7 @@ El comando utiliza `.claude/find-unused-code-config.json`:
 
 ⚡ COMANDOS SUGERIDOS:
 /fix-unused --auto --types=variables,imports
-/remove-files --confirm --archivos=src/components/OldButton.tsx
+/remove-files --confirm --files=src/components/OldButton.tsx
 npm uninstall moment uuid && npm install --save-dev uuid
 ```
 
@@ -309,20 +309,20 @@ fi
 
 ### Limpieza de Legacy Code
 ```bash
-# Encontrar archivos y funciones de features antiguas
-/find-unused-code src/legacy/ --types=archivos,funciones --min-size=10
+# Encontrar files y functions de features antiguas
+/find-unused-code src/legacy/ --types=files,functions --min-size=10
 ```
 
 ### Optimización de CSS
 ```bash
 # Detectar estilos no utilizados en componentes
-/find-unused-code styles/ --types=css --incluir=components
+/find-unused-code styles/ --types=css --include=components
 ```
 
 ### Análisis de Test Coverage
 ```bash
 # Encontrar código de tests no utilizado
-/find-unused-code tests/ --incluir=test-files --types=funciones
+/find-unused-code tests/ --include=test-files --types=functions
 ```
 
 ---

@@ -41,7 +41,7 @@ The `/find-bugs` command analyzes code looking for common patterns that may indi
 ### JavaScript/TypeScript
 - `== null` o `== undefined` (usar `===`)
 - Variables no declaradas o sin tipo
-- Funciones async sin await
+- functions async sin await
 - Promises sin catch
 - Memory leaks en event listeners
 - Closures con referencias circulares
@@ -54,14 +54,14 @@ The `/find-bugs` command analyzes code looking for common patterns that may indi
 - Props no validadas
 
 ### Node.js
-- Archivos no cerrados
+- files no cerrados
 - Streams sin manejo de errores
 - Process exit sin cleanup
 - Variables de entorno faltantes
 
 ### General
 - Código duplicado
-- Funciones muy largas (>50 líneas)
+- functions muy largas (>50 líneas)
 - Ciclos infinitos potenciales
 - Condiciones siempre true/false
 

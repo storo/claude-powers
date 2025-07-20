@@ -677,7 +677,7 @@ src/services/PaymentProcessor.js (234 líneas)
 • External service integrations
 • Security boundaries marcados
 
-💾 ARCHIVOS GENERADOS:
+💾 files GENERADOS:
 • payment-processor-flowchart.svg
 • payment-processor-sequence.svg  
 • payment-processor-architecture.svg

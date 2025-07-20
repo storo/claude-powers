@@ -10,7 +10,7 @@ El comando `/create-pr` automatiza completamente la creación de pull requests:
 - **Generación de descripciones** detalladas e inteligentes
 - **Detección de tipo de PR** (feature, bugfix, hotfix, etc.)
 - **Templates personalizados** según el tipo de cambio
-- **Revisores sugeridos** basados en los archivos modificados
+- **Revisores sugeridos** basados en los files modificados
 - **Labels automáticos** según el contenido
 - **Checklist de validación** pre-configurado
 - **Integración con issues** y tickets
@@ -18,12 +18,12 @@ El comando `/create-pr` automatiza completamente la creación de pull requests:
 ## Usage
 
 ```
-/create-pr [--titulo] [--type] [--base] [--target] [--template] [--reviewers]
+/create-pr [--title] [--type] [--base] [--target] [--template] [--reviewers]
 ```
 
 ### Parámetros
 
-- `--titulo`: Título personalizado del PR (auto-generado si se omite)
+- `--title`: Título personalizado del PR (auto-generado si se omite)
 - `--type`: Tipo de PR (feature, bugfix, hotfix, docs, chore)
 - `--base`: Branch base (main, develop, master)
 - `--target`: Branch destino (current branch por defecto)
@@ -37,7 +37,7 @@ El comando `/create-pr` automatiza completamente la creación de pull requests:
 
 ```
 /create-pr
-/create-pr --titulo="Implementar dashboard de usuario" --type=feature
+/create-pr --title="Implementar dashboard de usuario" --type=feature
 /create-pr --base=develop --reviewers=@john,@mary --labels=enhancement
 /create-pr --template=hotfix --auto-merge=true
 /create-pr --draft --type=feature
@@ -244,7 +244,7 @@ Fixes #{issue_number}
 
 📊 ANÁLISIS DE CAMBIOS:
 ┌─────────────────┬─────────┬─────────────┐
-│ Categoría       │ Archivos│ Complejidad │
+│ Categoría       │ files│ Complejidad │
 ├─────────────────┼─────────┼─────────────┤
 │ Frontend        │    8    │ Media       │
 │ Backend         │    3    │ Baja        │
@@ -265,7 +265,7 @@ Fixes #{issue_number}
 • size/medium
 
 👥 REVIEWERS SUGERIDOS:
-• @frontend-team (archivos UI modificados)
+• @frontend-team (files UI modificados)
 • @john-doe (CODEOWNER de auth/)
 • @security-team (cambios en autenticación)
 ```
@@ -327,7 +327,7 @@ Ninguno - completamente backward compatible
 ✅ Tests coverage > 80%
 ✅ No secrets o credentials expuestos
 ✅ Documentación actualizada
-⚠️ 2 archivos grandes detectados (considerar split)
+⚠️ 2 files grandes detectados (considerar split)
 ✅ CODEOWNERS notificados
 
 🚦 RESULTADO: ✅ LISTO PARA CREAR PR

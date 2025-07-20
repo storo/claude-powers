@@ -343,7 +343,7 @@ function UserComment({ comment }) {
 ========================================
 
 🔍 ANÁLISIS COMPLETADO:
-Archivos escaneados: 127
+files escaneados: 127
 Líneas analizadas: 15,847
 Tiempo de análisis: 23.4s
 

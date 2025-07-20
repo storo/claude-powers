@@ -1,30 +1,30 @@
 # Auto Commit Command
 
-Genera commits automáticos con descripciones inteligentes basadas en los cambios detectados en el proyecto.
+Generates automatic commits with intelligent descriptions based on detected changes in the project.
 
-## Descripción
+## Description
 
-El comando `/auto-commit` analiza los cambios pendientes en el repositorio Git y genera automáticamente:
+The `/auto-commit` command analyzes pending changes in the Git repository and automatically generates:
 
-- **Mensajes de commit descriptivos** siguiendo convenciones estándar
-- **Análisis de impacto** de los cambios realizados
-- **Categorización automática** del tipo de cambio (feat, fix, docs, etc.)
-- **Detección de breaking changes** y cambios importantes
-- **Validación** antes del commit para evitar errores
-- **Sugerencias de mejora** en el mensaje generado
+- **Descriptive commit messages** following standard conventions
+- **Impact analysis** of changes made
+- **Automatic categorization** of change type (feat, fix, docs, etc.)
+- **Detection of breaking changes** and important changes
+- **Validation** before commit to prevent errors
+- **Improvement suggestions** in the generated message
 
 ## Usage
 
 ```
-/auto-commit [--type] [--alcance] [--mensaje] [--validar] [--format]
+/auto-commit [--type] [--scope] [--message] [--validate] [--format]
 ```
 
 ### Parámetros
 
 - `--type`: Forzar un tipo específico (feat, fix, docs, style, refactor, test, chore)
-- `--alcance`: Especificar el alcance del cambio (componente, módulo, etc.)
-- `--mensaje`: Añadir mensaje personalizado adicional
-- `--validar`: Ejecutar validaciones antes del commit (lint, tests, build)
+- `--scope`: Especificar el alcance del cambio (componente, módulo, etc.)
+- `--message`: Añadir mensaje personalizado adicional
+- `--validate`: Ejecutar validaciones antes del commit (lint, tests, build)
 - `--format`: Formato de commit (conventional, angular, simple)
 - `--interactive`: Modo interactivo para revisar antes de commitear
 - `--dry-run`: Mostrar el mensaje generado sin hacer commit
@@ -33,11 +33,11 @@ El comando `/auto-commit` analiza los cambios pendientes en el repositorio Git y
 
 ```
 /auto-commit
-/auto-commit --type=feat --alcance=authentication
-/auto-commit --mensaje="implementar login social" --validar=true
+/auto-commit --type=feat --scope=authentication
+/auto-commit --message="implementar login social" --validate=true
 /auto-commit --format=conventional --interactive
 /auto-commit --dry-run
-/auto-commit --type=fix --validar=lint,test
+/auto-commit --type=fix --validate=lint,test
 ```
 
 ## Análisis Automático de Cambios
@@ -45,8 +45,8 @@ El comando `/auto-commit` analiza los cambios pendientes en el repositorio Git y
 ### Detección de Tipo de Cambio
 
 #### 🚀 feat (Nuevas características)
-- Archivos nuevos añadidos
-- Nuevas funciones o méall
+- files nuevos añadidos
+- Nuevas functions o méall
 - Nuevos componentes React
 - Nuevas rutas o endpoints
 - Nuevas dependencias principales
@@ -59,7 +59,7 @@ El comando `/auto-commit` analiza los cambios pendientes en el repositorio Git y
 - Corrección de imports
 
 #### 📚 docs (Documentación)
-- Cambios en archivos .md
+- Cambios en files .md
 - Actualizaciones en comentarios
 - README modificado
 - Cambios en JSDoc
@@ -72,12 +72,12 @@ El comando `/auto-commit` analiza los cambios pendientes en el repositorio Git y
 
 #### ♻️ refactor (Refactoring)
 - Reorganización de código
-- Extracción de funciones
+- Extracción de functions
 - Cambios de nombres
 - Optimizaciones sin cambio funcional
 
 #### ✅ test (Tests)
-- Archivos .test.* o .spec.*
+- files .test.* o .spec.*
 - Carpetas __tests__
 - Configuración de testing
 
@@ -100,7 +100,7 @@ docs/setup/ → alcance: "docs"
 
 ### Análisis de Impacto
 
-- **Breaking Changes**: Cambios en APIs públicas, eliminación de funciones
+- **Breaking Changes**: Cambios en APIs públicas, eliminación de functions
 - **Major**: Nuevas características importantes, refactors grandes
 - **Minor**: Nuevas características menores, mejoras
 - **Patch**: Bug fixes, documentación, style
@@ -165,7 +165,7 @@ El comando utiliza `.claude/auto-commit-config.json`:
 
 📊 CAMBIOS DETECTADOS:
 ┌─────────────────┬─────────┬─────────────┐
-│ Tipo            │ Archivos│ Líneas      │
+│ Tipo            │ files│ Líneas      │
 ├─────────────────┼─────────┼─────────────┤
 │ Modificados     │    8    │ +156 -42    │
 │ Nuevos          │    3    │ +203        │
@@ -220,7 +220,7 @@ Closes: #123, #124
 ✅ TypeScript: Compilación exitosa
 ⚠️ Tests: 2 tests pendientes para nuevos componentes
 ✅ Build: Generación exitosa
-✅ Tamaño archivos: Dentro de límites
+✅ Tamaño files: Dentro de límites
 
 🚦 RESULTADO: ✅ LISTO PARA COMMIT
 ```
@@ -284,19 +284,19 @@ Elección:
 ### Commits de Merge/Release
 ```bash
 # Auto-generar mensaje para merge
-/auto-commit --type=merge --mensaje="feat/user-dashboard into main"
+/auto-commit --type=merge --message="feat/user-dashboard into main"
 
 # Commit de release con changelog automático
-/auto-commit --type=release --mensaje="v2.1.0" --changelog=true
+/auto-commit --type=release --message="v2.1.0" --changelog=true
 
 # Hotfix urgente
-/auto-commit --type=hotfix --validar=minimal --priority=high
+/auto-commit --type=hotfix --validate=minimal --priority=high
 ```
 
 ### Múltiples Contextos
 ```bash
 # Commit para feature específica
-/auto-commit --alcance=dashboard --context=feature/user-dashboard
+/auto-commit --scope=dashboard --context=feature/user-dashboard
 
 # Commit cross-platform
 /auto-commit --platform=web,mobile --sync=true

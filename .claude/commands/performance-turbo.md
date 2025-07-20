@@ -537,7 +537,7 @@ const MemoizedItemCard = memo(ItemCard, (prevProps, nextProps) => {
 ✅ Memoization agregada a 34 componentes
 ✅ Virtualization en 6 listas largas
 ✅ Memory leak fixes en 8 componentes
-✅ Cache LRU implementado en 12 funciones
+✅ Cache LRU implementado en 12 functions
 
 📊 RESULTADOS MEMORY:
 • Memory usage: -42% promedium

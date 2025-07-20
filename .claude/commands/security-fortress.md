@@ -532,7 +532,7 @@ const ThreatDetection = {
         request: userBehavior
       });
       
-      // Rate limit más estricto
+      // Rate limit más strict
       await this.applyStrictRateLimit(req.ip);
     }
     
@@ -698,7 +698,7 @@ const ThreatDetection = {
 ============================================
 
 🔍 SECURITY ASSESSMENT COMPLETADO:
-Archivos escaneados: 1,247
+files escaneados: 1,247
 Vulnerabilidades detectadas: 23
 Tiempo de análisis: 3m 42s
 
