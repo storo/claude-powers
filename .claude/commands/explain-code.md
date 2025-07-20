@@ -1,54 +1,54 @@
 # Explain Code Command
 
-Genera explicaciones inteligentes y didácticas de código usando IA avanzada para acelerar comprensión, onboarding y reviews.
+Generates intelligent and didactic code explanations using advanced AI to accelerate understanding, onboarding, and reviews.
 
-## Descripción
+## Description
 
-El comando `/explain-code` es tu profesor personal de código que transforma código complejo en explicaciones claras:
+The `/explain-code` command is your personal code tutor that transforms complex code into clear explanations:
 
-- **Explicaciones contextuales** adaptadas al nivel del desarrollador
-- **Análisis de flujo de datos** y control de programa
-- **Detección de Patterns** y arquitecturas utilizadas
-- **Business logic** extraído y explicado claramente
-- **Diagramas automáticos** para visualizar la lógica
-- **Ejemplos interactivos** para facilitar comprensión
-- **Onboarding assistance** para nuevos desarrolladores
-- **Code review insights** para mejorar calidad
-- **Documentation generation** automática
+- **Contextual explanations** adapted to the developer's level
+- **Data flow analysis** and program control
+- **Detection of patterns** and architectures used
+- **Business logic** extracted and clearly explained
+- **Automatic diagrams** to visualize the logic
+- **Interactive examples** to facilitate understanding
+- **Onboarding assistance** for new developers
+- **Code review insights** to improve quality
+- **Automatic documentation generation**
 
 ## Usage
 
 ```
-/explain-code [archivo] [--nivel] [--format] [--foco] [--diagrama]
+/explain-code [file] [--level] [--format] [--focus] [--diagram]
 ```
 
-### Parámetros
+### Parameters
 
-- `archivo`: Archivo específico a explicar
-- `--nivel`: Nivel de audiencia (beginner, intermediate, expert, mixed-team)
-- `--format`: Formato de salida (detailed, summary, interactive, documentation)
-- `--foco`: Aspecto específico (logic, architecture, performance, security, patterns)
-- `--diagrama`: Generar diagramas (flowchart, sequence, architecture, data-flow)
-- `--contexto`: Contexto del proyecto (startup, enterprise, legacy, educational)
-- `--language`: Idioma de la explicación (spanish, english, french, etc.)
-- `--examples`: Incluir ejemplos prácticos
+- `file`: Specific file to explain
+- `--level`: Audience level (beginner, intermediate, expert, mixed-team)
+- `--format`: Output format (detailed, summary, interactive, documentation)
+- `--focus`: Specific aspect (logic, architecture, performance, security, patterns)
+- `--diagram`: Generate diagrams (flowchart, sequence, architecture, data-flow)
+- `--context`: Project context (startup, enterprise, legacy, educational)
+- `--language`: Explanation language (spanish, english, french, etc.)
+- `--examples`: Include practical examples
 
 ### Examples
 
 ```
 /explain-code src/utils/dataProcessor.js
-/explain-code --nivel=beginner --format=interactive --diagrama=flowchart
-/explain-code components/UserAuth.tsx --foco=security --nivel=expert
-/explain-code api/payment.js --format=documentation --contexto=enterprise
-/explain-code --foco=architecture --diagrama=sequence --nivel=mixed-team
-/explain-code legacy/billing.js --nivel=intermediate --examples=true
+/explain-code --level=beginner --format=interactive --diagram=flowchart
+/explain-code components/UserAuth.tsx --focus=security --level=expert
+/explain-code api/payment.js --format=documentation --context=enterprise
+/explain-code --focus=architecture --diagram=sequence --level=mixed-team
+/explain-code legacy/billing.js --level=intermediate --examples=true
 ```
 
-## Tipos de Explicaciones
+## Types of Explanations
 
-### 📚 Explicación Detallada para Principiantes
+### 📚 Detailed Explanation for Beginners
 ```javascript
-// Código original
+// Original code
 const processUserData = async (users) => {
   return await Promise.all(
     users
@@ -67,88 +67,88 @@ const processUserData = async (users) => {
   );
 };
 
-// ✨ EXPLICACIÓN GENERADA AUTOMÁTICAMENTE:
+// ✨ AUTOMATICALLY GENERATED EXPLANATION:
 
-📚 EXPLICACIÓN PASO A PASO:
+📚 STEP-BY-STEP EXPLANATION:
 ==========================
 
-🎯 PROPÓSITO DE LA FUNCIÓN:
-Esta función procesa una lista de usuarios para crear un resumen enriquecido
-de cada usuario activo que haya iniciado sesión recientemente.
+🎯 FUNCTION PURPOSE:
+This function processes a list of users to create an enriched summary
+for each active user who has recently logged in.
 
-📋 QUÉ HACE LA FUNCIÓN:
+📋 WHAT THE FUNCTION DOES:
 
-1️⃣ FILTRADO DE USUARIOS ACTIVOS:
-   • Toma una lista de usuarios como entrada
-   • Filtra solo usuarios que estén "activos" (user.isActive = true)
-   • Además filtra usuarios que hayan hecho login en los últimos 30 días
+1️⃣ FILTERING ACTIVE USERS:
+   • Takes a list of users as input
+   • Filters only users who are "active" (user.isActive = true)
+   • Additionally filters users who have logged in within the last 30 days
    
-   💡 CÁLCULO DE 30 DÍAS:
-   30 * 24 * 60 * 60 * 1000 = 30 días en milisegundos
-   Date.now() - 30 días = timestamp de hace exactamente 30 días
+   💡 30-DAY CALCULATION:
+   30 * 24 * 60 * 60 * 1000 = 30 days in milliseconds
+   Date.now() - 30 days = timestamp from exactly 30 days ago
 
-2️⃣ ENRIQUECIMIENTO DE DATOS:
-   Para cada usuario que pasa el filtro:
-   • Obtiene su perfil completo del servidor (fetchUserProfile)
-   • Obtiene sus preferencias de usuario (getUserPreferences)
-   • Ambas operaciones son asíncronas (await)
+2️⃣ DATA ENRICHMENT:
+   For each user that passes the filter:
+   • Retrieves their complete profile from the server (fetchUserProfile)
+   • Retrieves their user preferences (getUserPreferences)
+   • Both operations are asynchronous (await)
 
-3️⃣ CREACIÓN DEL OBJETO FINAL:
-   Combina la información original del usuario con:
-   • Datos del perfil (o objeto vacío {} si no hay datos)
-   • Preferencias del usuario (o objeto vacío {} si no hay configuraciones)
-   • Un score calculado basado en el usuario y su perfil
+3️⃣ CREATING THE FINAL OBJECT:
+   Combines the original user information with:
+   • Profile data (or an empty object {} if no data)
+   • User preferences (or an empty object {} if no settings)
+   • A calculated score based on the user and their profile
 
-4️⃣ PROCESAMIENTO PARALELO:
-   • Promise.all() ejecuta todas las operaciones async en paralelo
-   • Esto es MUY importante para performance: en lugar de esperar cada
-     usuario uno por uno, procesa all simultáneamente
+4️⃣ PARALLEL PROCESSING:
+   • Promise.all() executes all async operations in parallel
+   • This is VERY important for performance: instead of waiting for each
+     user one by one, it processes all simultaneously
 
-🔧 CONCEPTOS TÉCNICOS EXPLICADOS:
+🔧 EXPLAINED TECHNICAL CONCEPTS:
 
 📦 SPREAD OPERATOR (...user):
-   Copia todas las propiedades del objeto 'user' al nuevo objeto.
-   Es como decir "incluye todo lo que ya tenía el usuario original"
+   Copies all properties from the 'user' object to the new object.
+   It's like saying "include everything the original user already had"
 
 🛡️ OPTIONAL CHAINING (?.):
-   profile?.data significa "si profile existe, dame profile.data, 
-   si no existe, devuelve undefined"
+   profile?.data means "if profile exists, give me profile.data, 
+   otherwise, return undefined"
 
 🔄 NULLISH COALESCING (||):
-   profile?.data || {} significa "usa profile.data si existe,
-   si no usa un objeto vacío {}"
+   profile?.data || {} means "use profile.data if it exists,
+   otherwise use an empty object {}"
 
 ⚡ ASYNC/AWAIT:
-   Permite escribir código asíncrono que se lee como síncrono.
-   Cada 'await' pausa la función hasta que la promesa se resuelve.
+   Allows writing asynchronous code that reads like synchronous code.
+   Each 'await' pauses the function until the promise resolves.
 
 🚀 PROMISE.ALL():
-   Ejecuta múltiples promesas en paralelo y espera a que todas terminen.
-   Si tienes 100 usuarios, las 200 llamadas API (profile + preferences)
-   se ejecutan al mismo tiempo en lugar de secuencialmente.
+   Executes multiple promises in parallel and waits for all of them to complete.
+   If you have 100 users, the 200 API calls (profile + preferences)
+   are executed at the same time instead of sequentially.
 
-💡 CASOS DE USO TÍPICOS:
-• Dashboard que muestra usuarios activos con información completa
-• Sistema de recomendaciones basado en scores de usuario
-• Reportes de actividad de usuarios para administradores
-• Sistemas de gamificación que requieren datos enriquecidos
+💡 TYPICAL USE CASES:
+• Dashboard showing active users with complete information
+• Recommendation system based on user scores
+• User activity reports for administrators
+• Gamification systems requiring enriched data
 
-⚠️ CONSIDERACIONES IMPORTANTES:
-• Esta función puede hacer muchas llamadas API simultáneas
-• Considerar rate limiting si la lista de usuarios es muy grande
-• Manejar errores: ¿qué pasa si fetchUserProfile falla?
-• El cálculo de 30 días asume timestamps en milisegundos
+⚠️ IMPORTANT CONSIDERATIONS:
+• This function can make many simultaneous API calls
+• Consider rate limiting if the user list is very large
+• Handle errors: what happens if fetchUserProfile fails?
+• The 30-day calculation assumes timestamps in milliseconds
 
-🎯 MEJORAS SUGERIDAS:
-1. Agregar manejo de errores con try/catch
-2. Implementar batch fetching para reducir llamadas API
-3. Agregar logging para debugging
-4. Considerar cache para perfiles que no cambian frecuentemente
+🎯 SUGGESTED IMPROVEMENTS:
+1. Add error handling with try/catch
+2. Implement batch fetching to reduce API calls
+3. Add logging for debugging
+4. Consider caching for profiles that do not change frequently
 ```
 
-### 🏗️ Explicación Arquitectural para Equipos
+### 🏗️ Architectural Explanation for Teams
 ```javascript
-// Código original: Sistema de autenticación
+// Original code: Authentication system
 class AuthenticationService {
   constructor(tokenService, userRepository, auditLogger) {
     this.tokenService = tokenService;
@@ -171,57 +171,57 @@ class AuthenticationService {
   }
 }
 
-// ✨ EXPLICACIÓN ARQUITECTURAL GENERADA:
+// ✨ GENERATED ARCHITECTURAL EXPLANATION:
 
-🏗️ ANÁLISIS ARQUITECTURAL:
+🏗️ ARCHITECTURAL ANALYSIS:
 ==========================
 
-📐 PATRÓN DE DISEÑO IDENTIFICADO:
-• DEPENDENCY INJECTION: La clase recibe sus dependencias en el constructor
-• SERVICE LAYER: Encapsula lógica de negocio de autenticación
-• REPOSITORY PATTERN: Abstrae el acceso a datos de usuarios
-• SINGLE RESPONSIBILITY: Solo se encarga de autenticación
+📐 IDENTIFIED DESIGN PATTERNS:
+• DEPENDENCY INJECTION: The class receives its dependencies in the constructor
+• SERVICE LAYER: Encapsulates authentication business logic
+• REPOSITORY PATTERN: Abstracts user data access
+• SINGLE RESPONSIBILITY: Only handles authentication
 
-🔗 DIAGRAMA DE DEPENDENCIAS:
+🔗 DEPENDENCY DIAGRAM:
 ```
 AuthenticationService
-├── TokenService (Generación/validación de tokens)
-├── UserRepository (Acceso a datos de usuarios)
-└── AuditLogger (Logging de seguridad)
+├── TokenService (Token generation/validation)
+├── UserRepository (User data access)
+└── AuditLogger (Security logging)
 ```
 
-🎯 VENTAJAS DE ESTA ARQUITECTURA:
+🎯 ADVANTAGES OF THIS ARCHITECTURE:
 
-1️⃣ TESTABILIDAD:
-   • Fácil hacer unit tests con mocks de las dependencias
-   • Cada servicio se puede testear independientemente
+1️⃣ TESTABILITY:
+   • Easy to unit test with mocks of dependencies
+   • Each service can be tested independently
 
-2️⃣ FLEXIBILIDAD:
-   • Se puede cambiar la implementación de tokens (JWT → OAuth)
-   • Se puede cambiar la base de datos sin afectar la lógica
-   • Se puede cambiar el sistema de logging independientemente
+2️⃣ FLEXIBILITY:
+   • Token implementation can be changed (JWT → OAuth)
+   • Database can be changed without affecting logic
+   • Logging system can be changed independently
 
 3️⃣ SEPARATION OF CONCERNS:
-   • AuthService: Solo lógica de autenticación
-   • TokenService: Solo manejo de tokens
-   • UserRepository: Solo acceso a datos
-   • AuditLogger: Solo logging de seguridad
+   • AuthService: Only authentication logic
+   • TokenService: Only token handling
+   • UserRepository: Only data access
+   • AuditLogger: Only security logging
 
-🔐 FLUJO DE SEGURIDAD:
+🔐 SECURITY FLOW:
 
-1. Validación de credenciales
-2. Logging de intentos fallidos (security audit)
-3. Generación de token seguro
-4. Logging de logins exitosos (compliance)
-5. Retorno de información autorizada
+1. Credential validation
+2. Logging of failed attempts (security audit)
+3. Secure token generation
+4. Logging of successful logins (compliance)
+5. Return authorized information
 
-🚀 ESCALABILIDAD:
-• Cada servicio puede escalar independientemente
-• Se puede implementar cache en UserRepository
-• Se puede hacer el AuditLogger asíncrono
-• TokenService puede usar clusters para performance
+🚀 SCALABILITY:
+• Each service can scale independently
+• Cache can be implemented in UserRepository
+• AuditLogger can be made asynchronous
+• TokenService can use clusters for performance
 
-📊 Patterns ENTERPRISE APLICADOS:
+📊 APPLIED ENTERPRISE PATTERNS:
 • ✅ Dependency Injection
 • ✅ Repository Pattern  
 • ✅ Service Layer
@@ -229,7 +229,7 @@ AuthenticationService
 • ✅ Audit Trail Pattern
 • ✅ Secure Token Generation
 
-🎯 USO EN ARQUITECTURA HEXAGONAL:
+🎯 USE IN HEXAGONAL ARCHITECTURE:
 ```
 ┌─────────────────────┐
 │   Authentication    │ ← Application Service
@@ -245,16 +245,16 @@ AuthenticationService
 └──────┘ └──────┘ └──────┘
 ```
 
-💡 RECOMENDACIONES DE EQUIPO:
-• Ideal para equipos que valoran clean architecture
-• Perfecta para aplicaciones enterprise que necesitan audit trails
-• Facilita onboarding de nuevos desarrolladores
-• Permite desarrollo paralelo de diferentes servicios
+💡 TEAM RECOMMENDATIONS:
+• Ideal for teams that value clean architecture
+• Perfect for enterprise applications that need audit trails
+• Facilitates onboarding of new developers
+• Allows parallel development of different services
 ```
 
-### 🎨 Explicación Visual con Diagramas
+### 🎨 Visual Explanation with Diagrams
 ```javascript
-// Código: Sistema de payment processing
+// Code: Payment processing system
 const processPayment = async (order, paymentMethod) => {
   const validation = await validateOrder(order);
   if (!validation.isValid) throw new Error(validation.error);
@@ -272,9 +272,9 @@ const processPayment = async (order, paymentMethod) => {
   return { order: updatedOrder, payment };
 };
 
-// ✨ DIAGRAMA AUTOMÁTICO GENERADO:
+// ✨ AUTOMATICALLY GENERATED DIAGRAM:
 
-🎨 DIAGRAMA DE FLUJO GENERADO:
+🎨 GENERATED FLOWCHART DIAGRAM:
 =============================
 
 ```mermaid
@@ -297,7 +297,7 @@ flowchart TD
     style L fill:#e8f5e8
 ```
 
-📊 DIAGRAMA DE SECUENCIA:
+📊 SEQUENCE DIAGRAM:
 ========================
 
 ```mermaid
@@ -332,32 +332,32 @@ sequenceDiagram
     end
 ```
 
-🔍 PUNTOS CRÍTICOS IDENTIFICADOS:
+🔍 IDENTIFIED CRITICAL POINTS:
 ================================
 
 🚨 ERROR HANDLING:
-• 2 puntos de falla principales: validación y payment
-• Logging diferenciado para troubleshooting
-• Error types específicos para diferentes fallas
+• 2 main failure points: validation and payment
+• Differentiated logging for troubleshooting
+• Specific error types for different failures
 
 ⚡ PERFORMANCE CONSIDERATIONS:
-• updateOrderStatus y sendConfirmationEmail podrían ser paralelos
-• logSuccessfulPayment podría ser asíncrono (fire-and-forget)
+• updateOrderStatus and sendConfirmationEmail could be parallel
+• logSuccessfulPayment could be asynchronous (fire-and-forget)
 
 🔐 SECURITY ASPECTS:
-• Validación obligatoria antes de procesar pago
-• Logging completo para audit trail
-• Error messages no exponen información sensible
+• Mandatory validation before processing payment
+• Complete logging for audit trail
+• Error messages do not expose sensitive information
 
 💰 BUSINESS LOGIC:
-• Transaccional: order status solo se actualiza tras pago exitoso
-• Email confirmation es parte del flujo crítico
-• Logging para compliance y analytics
+• Transactional: order status only updates after successful payment
+• Email confirmation is part of the critical flow
+• Logging for compliance and analytics
 ```
 
-### 🎓 Explicación Educativa Interactiva
+### 🎓 Interactive Educational Explanation
 ```javascript
-// Código: Algoritmo de búsqueda binary search
+// Code: Binary search algorithm
 const binarySearch = (arr, target) => {
   let left = 0;
   let right = arr.length - 1;
@@ -373,93 +373,93 @@ const binarySearch = (arr, target) => {
   return -1;
 };
 
-// ✨ EXPLICACIÓN EDUCATIVA INTERACTIVA:
+// ✨ INTERACTIVE EDUCATIONAL EXPLANATION:
 
-🎓 TUTORIAL INTERACTIVO: BINARY SEARCH
+🎓 INTERACTIVE TUTORIAL: BINARY SEARCH
 ======================================
 
-📚 ¿QUÉ ES BINARY SEARCH?
-Es un algoritmo de búsqueda ultra-eficiente que funciona 
-"dividiendo y conquistando" un array ordenado.
+📚 WHAT IS BINARY SEARCH?
+It is an ultra-efficient search algorithm that works by
+"dividing and conquering" a sorted array.
 
-🎯 ANALOGÍA DEL MUNDO REAL:
-Imagina que buscas una palabra en un diccionario:
-1. Abres por la mitad
-2. Si la palabra está antes, buscas en la mitad izquierda
-3. Si está después, buscas en la mitad derecha
-4. Repites hasta encontrarla
+🎯 REAL-WORLD ANALOGY:
+Imagine searching for a word in a dictionary:
+1. Open to the middle
+2. If the word is before, search the left half
+3. If it's after, search the right half
+4. Repeat until found
 
-⚡ ¿POR QUÉ ES TAN RÁPIDO?
-• Array de 1,000 elementos: máximo 10 comparaciones
-• Array de 1,000,000 elementos: máximo 20 comparaciones
-• Complejidad: O(log n) vs O(n) de búsqueda lineal
+⚡ WHY IS IT SO FAST?
+• 1,000-element array: maximum 10 comparisons
+• 1,000,000-element array: maximum 20 comparisons
+• Complexity: O(log n) vs O(n) for linear search
 
-🔍 PASO A PASO CON EJEMPLO:
+🔍 STEP-BY-STEP WITH EXAMPLE:
 ===========================
-Busquemos el número 7 en [1, 3, 5, 7, 9, 11, 13, 15]
+Let's search for the number 7 in [1, 3, 5, 7, 9, 11, 13, 15]
 
-📍 ITERACIÓN 1:
+📍 ITERATION 1:
    left=0, right=7, mid=3
-   arr[3] = 7 ← ¡ENCONTRADO!
+   arr[3] = 7 ← FOUND!
    
-🎉 RESULTADO: índice 3
+🎉 RESULT: index 3
 
-🔄 EJEMPLO MÁS COMPLEJO:
-Busquemos el número 11 en [1, 3, 5, 7, 9, 11, 13, 15]
+🔄 MORE COMPLEX EXAMPLE:
+Let's search for the number 11 in [1, 3, 5, 7, 9, 11, 13, 15]
 
-📍 ITERACIÓN 1:
+📍 ITERATION 1:
    left=0, right=7, mid=3
-   arr[3] = 7 < 11 → buscar derecha
+   arr[3] = 7 < 11 → search right
    left = 4
 
-📍 ITERACIÓN 2:
+📍 ITERATION 2:
    left=4, right=7, mid=5
-   arr[5] = 11 ← ¡ENCONTRADO!
+   arr[5] = 11 ← FOUND!
    
-🎉 RESULTADO: índice 5
+🎉 RESULT: index 5
 
-🧠 CONCEPTOS CLAVE EXPLICADOS:
+🧠 EXPLAINED KEY CONCEPTS:
 
-🎯 INVARIANTE DEL ALGORITMO:
-"Si el target existe en el array, siempre estará entre left y right"
+🎯 ALGORITHM INVARIANT:
+"If the target exists in the array, it will always be between left and right"
 
-📐 CÁLCULO DEL PUNTO medium:
-Math.floor((left + right) / 2) asegura que mid sea entero
-¿Por qué Math.floor? Para evitar índices decimales
+📐 MIDPOINT CALCULATION:
+Math.floor((left + right) / 2) ensures mid is an integer
+Why Math.floor? To avoid decimal indices
 
-⚖️ DECISIÓN LÓGICA:
-• arr[mid] === target → Encontrado ✅
-• arr[mid] < target → target está a la derecha →
-• arr[mid] > target → target está a la izquierda ←
+⚖️ LOGICAL DECISION:
+• arr[mid] === target → Found ✅
+• arr[mid] < target → target is to the right →
+• arr[mid] > target → target is to the left ←
 
-🔄 CONDICIÓN DE PARADA:
-left > right significa que hemos agotado todas las posibilidades
-El target no existe en el array → return -1
+🔄 STOPPING CONDITION:
+left > right means we have exhausted all possibilities
+Target does not exist in the array → return -1
 
-⚠️ PREREQUISITO CRÍTICO:
-¡EL ARRAY DEBE ESTAR ORDENADO!
-Si no está ordenado, el algoritmo NO funcionará correctamente.
+⚠️ CRITICAL PREREQUISITE:
+THE ARRAY MUST BE SORTED!
+If not sorted, the algorithm will NOT work correctly.
 
-🚀 CASOS DE USO REALES:
-• Búsqueda en bases de datos indexadas
-• Autocompletado en búsqueda web
-• Sistemas de recomendación
-• Algoritmos de machine learning
-• Cualquier búsqueda en datos ordenados
+🚀 REAL USE CASES:
+• Searching in indexed databases
+• Autocomplete in web search
+• Recommendation systems
+• Machine learning algorithms
+• Any search in sorted data
 
-🎪 EXPERIMENTO INTERACTIVO:
-Prueba modificar el target y ver cómo cambia el número de iteraciones:
-• Target 1: 1 iteración (peor caso izquierda)
-• Target 15: 2 iteraciones (peor caso derecha)  
-• Target 8: 4 iteraciones (no existe)
+🎪 INTERACTIVE EXPERIMENT:
+Try modifying the target and see how the number of iterations changes:
+• Target 1: 1 iteration (worst case left)
+• Target 15: 2 iterations (worst case right)  
+• Target 8: 4 iterations (does not exist)
 
-💡 OPTIMIZACIONES AVANZADAS:
-• Interpolation search para datos uniformemente distribuidos
-• Exponential search para arrays muy grandes
-• Ternary search para encontrar máximos/mínimos
+💡 ADVANCED OPTIMIZATIONS:
+• Interpolation search for uniformly distributed data
+• Exponential search for very large arrays
+• Ternary search for finding max/min
 ```
 
-## Configuración
+## Configuration
 
 `.claude/explain-code-config.json`:
 
@@ -579,36 +579,36 @@ Prueba modificar el target y ver cómo cambia el número de iteraciones:
 }
 ```
 
-## Salida del Comando
+## Command Output
 
-### Análisis de Código
+### Code Analysis
 ```
 🧠 CLAUDE POWER - CODE EXPLANATION ANALYSIS
 ===========================================
 
-📁 ARCHIVO ANALIZADO:
-src/services/PaymentProcessor.js (234 líneas)
+📁 ANALYZED FILE:
+src/services/PaymentProcessor.js (234 lines)
 
-🔍 ANÁLISIS AUTOMÁTICO:
-• Complejidad: Media (7.2/10)
-• Patterns detectados: Factory, Observer, Strategy
-• Conceptos clave: Async programming, Error handling, State machine
+🔍 AUTOMATIC ANALYSIS:
+• Complexity: Medium (7.2/10)
+• Detected patterns: Factory, Observer, Strategy
+• Key concepts: Async programming, Error handling, State machine
 • Business logic: Payment processing workflow
-• Audiencia sugerida: Intermediate developers
+• Suggested audience: Intermediate developers
 
-📊 ELEMENTOS IDENTIFICADOS:
+📊 IDENTIFIED ELEMENTS:
 ┌─────────────────────┬─────────┬─────────────────────┐
-│ Elemento            │ Count   │ Complejidad         │
+│ Element             │ Count   │ Complexity          │
 ├─────────────────────┼─────────┼─────────────────────┤
-│ Functions           │   12    │ Media               │
-│ Classes             │    3    │ Alta                │
-│ Async Operations    │    8    │ Media               │
-│ Error Handlers      │    6    │ Baja                │
-│ Business Rules      │   15    │ Alta                │
-│ Design Patterns     │    3    │ Media               │
+│ Functions           │   12    │ Medium              │
+│ Classes             │    3    │ High                │
+│ Async Operations    │    8    │ Medium              │
+│ Error Handlers      │    6    │ Low                 │
+│ Business Rules      │   15    │ High                │
+│ Design Patterns     │    3    │ Medium              │
 └─────────────────────┴─────────┴─────────────────────┘
 
-🎯 ASPECTOS A EXPLICAR:
+🎯 ASPECTS TO EXPLAIN:
 • Payment state machine workflow
 • Error handling strategy
 • Async operation coordination
@@ -616,75 +616,75 @@ src/services/PaymentProcessor.js (234 líneas)
 • Integration patterns
 • Testing approaches
 
-⏱️ TIEMPO ESTIMADO DE LECTURA: 12-15 minutos
-👥 AUDIENCIA ÓPTIMA: Intermediate to Senior developers
+⏱️ ESTIMATED READING TIME: 12-15 minutes
+👥 OPTIMAL AUDIENCE: Intermediate to Senior developers
 ```
 
-### Explicación Generada
+### Generated Explanation
 ```
-📚 EXPLICACIÓN COMPLETA GENERADA:
+📚 COMPLETE EXPLANATION GENERATED:
 ================================
 
-📄 DOCUMENTO CREADO:
-• src/services/PaymentProcessor.md (1,247 palabras)
-• Diagramas incluidos: 3 (flowchart, sequence, architecture)
-• Ejemplos prácticos: 8
-• Conceptos explicados: 15
+📄 DOCUMENT CREATED:
+• src/services/PaymentProcessor.md (1,247 words)
+• Diagrams included: 3 (flowchart, sequence, architecture)
+• Practical examples: 8
+• Concepts explained: 15
 
-🎯 SECCIONES INCLUIDAS:
-✅ Propósito y responsabilidades
-✅ Arquitectura y Patterns utilizados
-✅ Flujo de datos paso a paso
-✅ Manejo de errores y edge cases
-✅ Consideraciones de seguridad
-✅ Ejemplos de uso práctico
+🎯 SECTIONS INCLUDED:
+✅ Purpose and responsibilities
+✅ Architecture and patterns used
+✅ Step-by-step data flow
+✅ Error handling and edge cases
+✅ Security considerations
+✅ Practical usage examples
 ✅ Testing strategies
-✅ Posibles mejoras y optimizaciones
+✅ Possible improvements and optimizations
 
-📊 MÉTRICAS DE CALIDAD:
-• Claridad: 9.2/10
-• Completitud: 9.0/10
-• Utilidad para onboarding: 9.5/10
-• Precisión técnica: 9.8/10
+📊 QUALITY METRICS:
+• Clarity: 9.2/10
+• Completeness: 9.0/10
+• Usefulness for onboarding: 9.5/10
+• Technical accuracy: 9.8/10
 
-🎓 FEEDBACK EDUCATIVO:
-• Ideal para desarrolladores mid-level
-• Contiene conceptos transferibles a otros proyectos
-• Incluye best practices y anti-patterns
-• Facilita code reviews futuros
+🎓 EDUCATIONAL FEEDBACK:
+• Ideal for mid-level developers
+• Contains concepts transferable to other projects
+• Includes best practices and anti-patterns
+• Facilitates future code reviews
 ```
 
-### Diagramas Interactivos
+### Interactive Diagrams
 ```
-🎨 DIAGRAMAS GENERADOS AUTOMÁTICAMENTE:
+🎨 AUTOMATICALLY GENERATED DIAGRAMS:
 ======================================
 
-📊 FLOWCHART PRINCIPAL:
-• Muestra el flujo completo de payment processing
-• Incluye decision points y error paths
-• Color-coded por tipo de operación
-• Enlaces interactivos a explicaciones detalladas
+📊 MAIN FLOWCHART:
+• Shows the complete payment processing flow
+• Includes decision points and error paths
+• Color-coded by operation type
+• Interactive links to detailed explanations
 
 🔄 SEQUENCE DIAGRAM:
-• Interacciones entre servicios
-• Timeouts y retries visualizados
-• Async operations claramente marcadas
-• Error scenarios incluidos
+• Interactions between services
+• Timeouts and retries visualized
+• Async operations clearly marked
+• Error scenarios included
 
 🏗️ ARCHITECTURE DIAGRAM:
-• Dependencias entre componentes
-• Data flow entre capas
+• Dependencies between components
+• Data flow between layers
 • External service integrations
-• Security boundaries marcados
+• Security boundaries marked
 
-💾 files GENERADOS:
+💾 GENERATED FILES:
 • payment-processor-flowchart.svg
 • payment-processor-sequence.svg  
 • payment-processor-architecture.svg
 • payment-processor-explanation.md
 ```
 
-## Integración con Herramientas
+## Integrations with Tools
 
 ### VS Code Extension
 ```json
@@ -734,7 +734,9 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-        
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Get changed files
         id: changes
         run: |
@@ -745,7 +747,7 @@ jobs:
           while read file; do
             if [[ $file == *.js || $file == *.ts || $file == *.tsx ]]; then
               npx claude-power explain-code "$file" \
-                --nivel=mixed-team \
+                --level=mixed-team \
                 --format=summary \
                 --output=markdown > "explanations/${file}.md"
             fi
@@ -796,4 +798,4 @@ jobs:
 
 ---
 
-*Parte del ecosistema **Claude Power** - Código explicado inteligentemente* 🧠🚀 
+*Part of the **Claude Power** ecosystem - Intelligently explained code* 🧠🚀 
